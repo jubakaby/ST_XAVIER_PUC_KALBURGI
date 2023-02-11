@@ -1,0 +1,894 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/*
+| -------------------------------------------------------------------------
+| URI ROUTING
+| -------------------------------------------------------------------------
+| This file lets you re-map URI requests to specific controller functions.
+|
+| Typically there is a one-to-one relationship between a URL string
+| and its corresponding controller class/method. The segments in a
+| URL normally follow this pattern:
+|
+|	example.com/class/method/id/
+|
+| In some instances, however, you may want to remap this relationship
+| so that a different class/function is called than the one
+| corresponding to the URL.
+|
+| Please see the user guide for complete details:
+|
+|	https://codeigniter.com/user_guide/general/routing.html
+|
+| -------------------------------------------------------------------------
+| RESERVED ROUTES
+| -------------------------------------------------------------------------
+|
+| There are three reserved routes:
+|
+|	$route['default_controller'] = 'welcome';
+|
+| This route indicates which controller class should be loaded if the
+| URI contains no data. In the above example, the "welcome" class
+| would be loaded.
+|
+|	$route['404_override'] = 'errors/page_missing';
+|
+| This route will tell the Router which controller/method to use if those
+| provided in the URL cannot be matched to a valid route.
+|
+|	$route['translate_uri_dashes'] = FALSE;
+|
+| This is not exactly a route, but allows you to automatically route
+| controller and method names that contain dashes. '-' isn't a valid
+| class or method name character, so it requires translation.
+| When you set this option to TRUE, it will replace ALL dashes in the
+| controller and method URI segments.
+|
+| Examples:	my-controller/index	-> my_controller/index
+|		my-controller/my-method	-> my_controller/my_method
+*/
+
+$route['default_controller'] = "login";
+$route['404_override'] = 'error_404';
+
+
+/*********** USER DEFINED ROUTES *******************/
+
+$route['loginMe'] = 'login/loginMe';
+$route['dashboard'] = 'student';
+$route['logout'] = 'user/logout';
+
+$route['login-history'] = "user/loginHistoy";
+$route['login-history/(:num)'] = "user/loginHistoy/$1";
+$route['login-history/(:num)/(:num)'] = "user/loginHistoy/$1/$2";
+
+//this route for forgot password
+$route['forgotPassword'] = "login/forgotPassword";
+$route['resetPasswordUser'] = "login/resetPasswordUser";
+$route['resetPasswordConfirmUser'] = "login/resetPasswordConfirmUser";
+
+//this route for user registration
+$route['userRegistration'] = 'registration/userRegistration';
+$route['userRegisterDB'] = 'registration/userRegisterDB';
+
+//this route for user profile
+$route['profile'] = "student/profile";
+$route['profile/(:any)'] = "student/profile/$1";
+$route['changePassword'] = "student/changePassword";
+$route['changePassword/(:any)'] = "student/changePassword/$1";
+
+$route['sendFeedbackToManagement'] = "student/sendFeedbackToManagement";
+$route['studentPerformance'] = "student/studentPerformance";
+$route['viewTimeTable'] = "timetable/viewTimeTable";
+$route['viewstudyMaterials'] = "studymaterial/viewstudyMaterials";
+$route['download/(:any)'] = "studymaterial/download/$1";
+
+
+//faculty routes
+$route['loginFaculty'] = "login/loginFaculty";
+
+
+$route['loginMe'] = "login/loginMe";
+$route['dashboard'] = 'user';
+$route['staffDetails'] = 'staffs/staffDetails';
+$route['staffDetails/(:any)'] = 'staffs/staffDetails/$1';
+$route['addNewStaff'] = 'staffs/addNewStaff';
+$route['addNewStaffToSjbhs'] = 'staffs/addNewStaffToSjbhs';
+
+$route['viewStaffInfoById/(:any)'] = "staffs/viewStaffInfoById/$1";
+
+
+$route['changePasswordAdmin/(:any)'] = "user/changePasswordAdmin/$1";
+
+$route['deleteStaff'] = "staffs/deleteStaff";
+
+$route['editStaff/(:any)'] = "staffs/editStaff/$1";
+$route['updateStaff'] = "staffs/updateStaff";
+
+$route['checkStaffDExists'] = "staffs/checkStaffDExists";
+$route['get_staffs'] = "staffs/get_staffs";
+
+//deleted staff
+$route['deletedStaffDetails'] = "staffs/deletedStaffDetails";
+$route['get_deleted_staffs'] = "staffs/get_deleted_staffs";
+$route['restoreStaff'] = "staffs/restoreStaff";
+
+
+//leave routes
+$route['updateLeaveInfo'] = "staffs/updateLeaveInfo";
+$route['staffLeaveInfo'] = "leave/staffLeaveInfo";
+$route['viewApplyLeave'] = "leave/viewApplyLeave";
+
+$route['applyLeaveByStaff'] = "leave/applyLeaveByStaff";
+$route['get_applied_leave_info'] = "leave/get_applied_leave_info";
+
+$route['getStaffLeaveInfoById'] = "leave/getStaffLeaveInfoById";
+$route['updateStaffLeaveInfo'] = "leave/updateStaffLeaveInfo";
+$route['deleteAppliedLeave'] = "leave/deleteAppliedLeave";
+$route['editStaffLeaveInfo/(:any)'] = "leave/editStaffLeaveInfo/$1";
+$route['updateStaffLeaveInfoByAdmin'] = "leave/updateStaffLeaveInfoByAdmin";
+
+$route['get_single_staff_applied_leave_info'] = "leave/get_single_staff_applied_leave_info";
+
+$route['viewAdminApplyLeavePage'] = "leave/viewAdminApplyLeavePage";
+$route['applyStaffLeaveByAdmin'] = "leave/applyStaffLeaveByAdmin";
+
+
+//holiday routes
+
+$route['viewHolidayList'] = "holiday/viewHolidayList";
+$route['addNewHoliday'] = "holiday/addNewHoliday";
+$route['editHoliday/(:any)'] = "holiday/editHoliday/$1";
+$route['updateHoliday'] = "holiday/updateHoliday";
+$route['deleteHoliday'] = "holiday/deleteHoliday";
+
+
+//faculty settings routes
+$route['viewSettings'] = "settings/viewSettings";
+
+
+//staff profile
+$route['viewMyProfile'] = "user/viewMyProfile";
+$route['viewMyProfile/(:any)'] = "user/viewMyProfile/$1";
+$route['changePassword'] = "user/changePassword";
+$route['updateProfileImage'] = "user/updateProfileImage";
+
+
+$route['api/v1/simple'] = 'api/simple_api';
+$route['api/v1/limit'] = 'api/api_limit';
+$route['api/v1/key'] = 'api/api_key';
+
+
+$route['api/v1/user/login'] = 'api/login';
+$route['api/v1/user/view'] = 'api/view';
+
+//attendance info staff
+$route['getStaffAttendanceInfo'] = "staffs/getStaffAttendanceInfo";
+$route['get_attendance'] = "staffs/get_attendance";
+
+$route['get_my_attendance_info'] = "attendance/get_my_attendance_info";
+
+$route['getMyAttendanceInfoPage'] = "attendance/getMyAttendanceInfoPage";
+$route['downloadStaffAttendanceReport'] = "attendance/downloadStaffAttendanceReport";
+
+
+//delete staff Attendance
+$route['deleteStaffAttendance'] = "attendance/deleteStaffAttendance";
+
+//add new staff Attendance
+$route['addNewStaffAttendance'] = "staffs/addNewStaffAttendance";
+$route['getStaffAttendanceInfoByDate_Staff_Id'] = "staffs/getStaffAttendanceInfoByDate_Staff_Id";
+$route['updateStaffAttendance'] = "staffs/updateStaffAttendance";
+
+//permisssion routes
+$route['viewPermissions'] = "permission/viewPermissions";
+$route['get_applied_permission_info'] = "permission/get_applied_permission_info";
+$route['applyNewPermission'] = "permission/applyNewPermission";
+$route['getPermissionInfoByRowId'] = "permission/getPermissionInfoByRowId";
+$route['updateStaffPermissionInfo'] = "permission/updateStaffPermissionInfo";
+$route['updatePermissionInfoByStaff'] = "permission/updatePermissionInfoByStaff";
+$route['applyNewPermissionByAdmin'] = "permission/applyNewPermissionByAdmin";
+
+//changes - 5/11/2019
+
+//faculty settings routes
+$route['addDepartment'] = "settings/addDepartment";
+$route['deleteDepartment'] = "settings/deleteDepartment";
+$route['addReligion'] = "settings/addReligion";
+$route['deleteReligion'] = "settings/deleteReligion";
+$route['addCaste'] = "settings/addCaste";
+$route['deleteCaste'] = "settings/deleteCaste";
+$route['addNationality'] = "settings/addNationality";
+$route['deleteNationality'] = "settings/deleteNationality";
+$route['addCategory'] = "settings/addCategory";
+$route['deleteCategory'] = "settings/deleteCategory";
+$route['addStream'] = "settings/addStream";
+$route['deleteStream'] = "settings/deleteStream";
+$route['getNewAdmittedStudentsImport'] = "settings/getNewAdmittedStudentsImport";
+$route['addStudentMissingData'] = "settings/addStudentMissingData";
+
+// routes for student 
+$route['studentDetails'] = "students/studentDetails";
+$route['studentDetails/(:any)'] = "students/studentDetails/$1";
+$route['addNewStudent'] = "students/addNewStudent";
+$route['get_students'] = "students/get_students";
+$route['viewStudentInfoById/(:any)'] = "students/viewStudentInfoById/$1";
+$route['editStudent/(:any)'] = "students/editStudent/$1";
+$route['updateStudent'] = "students/updateStudent";
+$route['updateStudentAcademicInfo'] = "students/updateStudentAcademicInfo";
+$route['updateStudentFamilyInfo'] = "students/updateStudentFamilyInfo";
+$route['deleteStudent'] = "students/deleteStudent";
+$route['getFamilyInfoByExcel'] = "students/getFamilyInfoByExcel";
+$route['downloadStudentExcelReport'] = 'students/downloadStudentExcelReport';
+$route['promoteStudent'] = "students/promoteStudent";
+
+//alumin student
+$route['studentAlumniInfo'] = "students/studentAlumniInfo";
+$route['studentAlumniInfo/(:any)'] = "students/studentAlumniInfo/$1";
+
+// student Tc
+$route['getStudentById'] = 'students/getStudentById';
+$route['addNewTcInfo'] = 'students/addNewTcInfo';
+$route['getStudentAppliedForTc'] = "students/getStudentAppliedForTc";
+$route['getStudentAppliedForTc/(:any)'] = "students/getStudentAppliedForTc/$1";
+$route['getStudentsTcInfoById'] = "students/getStudentsTcInfoById";
+
+$route['getAlumniStudentTc'] = "students/getAlumniStudentTc";
+$route['getAlumniStudentTc/(:any)'] = "students/getAlumniStudentTc/$1";
+$route['addAlumniStudentTCInfo'] = "students/addAlumniStudentTCInfo";
+$route['getAlumniStudentsTcInfoById'] = "students/getAlumniStudentsTcInfoById";
+$route['getAlumniStudentTcInfo'] = "students/getAlumniStudentTcInfo";
+
+/*subjects routing */
+$route['subjectDetails'] = "subjects/subjectDetails";
+$route['get_subjects'] = 'subjects/get_subjects';
+$route['addNewSubject'] = "subjects/addNewSubject";
+$route['addNewSubjectToDB'] = "subjects/addNewSubjectToDB";
+$route['editSubjectsById/(:any)'] = "subjects/editSubjectsById/$1";
+$route['updateSubject'] = "subjects/updateSubject";
+$route['checkSubjectCodeExists'] = 'subjects/checkSubjectCodeExists';
+$route['deleteSubject'] = "subjects/deleteSubject";
+
+// assign faculty subject and sections
+$route['updateStaffSubjects'] = "staffs/updateStaffSubjects";
+$route['updateStaffSection'] = "staffs/updateStaffSection";
+$route['deleteStaffSubject'] = "staffs/deleteStaffSubject";
+$route['deleteStaffSection'] = "staffs/deleteStaffSection";
+
+// dashboard quick info
+$route['facultyDashboard'] = "user/facultyDashboard";
+$route['facultyDashboard/(:any)'] = "user/facultyDashboard/$1";
+$route['getAllCurrentStudents'] = "students/getAllCurrentStudents";
+
+// time table
+$route['timeTableDetails'] = "timetable/timeTableDetails";
+$route['addNewClass'] = "timetable/addNewClass";
+$route['get_class'] = "timetable/get_class";
+$route['addTimeTable/(:any)'] = "timetable/addTimeTable/$1";
+$route['addTimeTableToDB'] = "timetable/addTimeTableToDB";
+
+// class timings for time table
+$route['addClassTimings'] = "settings/addClassTimings";
+$route['deleteClassTimings'] = "settings/deleteClassTimings";
+
+$route['getAssignedSubjects'] = "timetable/getAssignedSubjects";
+$route['deleteClassInfo'] = "timetable/deleteClassInfo";
+
+// add stream and section
+$route['classStreamDetails'] = "timetable/classStreamDetails";
+$route['classStreamDetails/(:any)'] = "timetable/classStreamDetails/$1";
+$route['addSection'] = "timetable/addSection";
+$route['deleteSection'] = "timetable/deleteSection";
+
+
+
+$route['get_sms_report'] = "SMS/get_sms_report";
+$route['openSMSSentReport'] = "SMS/openSMSSentReport";
+
+$route['viewSMSPortal'] = "SMS/viewSMSPortal";
+$route['sendBulkSMS'] = "SMS/sendBulkSMS";
+$route['sendSMS_to_SingleNumber'] = "SMS/sendSMS_to_SingleNumber";
+$route['sendSMSToStaff'] = "SMS/sendSMSToStaff";
+$route['sendSMSAbsentedStudents'] = 'SMS/sendSMSAbsentedStudents';
+
+// online class route
+$route['viewOnlineClass'] = "studyMaterial/viewOnlineClass";
+$route['viewOnlineClass/(:num)'] = "studyMaterial/viewOnlineClass/$1";
+$route['addNewOnlineClass'] = "studyMaterial/addNewOnlineClass";
+$route['editOnlineClass'] = "studyMaterial/editOnlineClass";
+$route['editOnlineClass/(:any)'] = "studyMaterial/editOnlineClass/$1";
+$route['updateOnlineClass'] = "studyMaterial/updateOnlineClass";
+$route['deleteOnlineClass'] = "studyMaterial/deleteOnlineClass";
+
+// youtube video
+$route['viewYoutube'] = 'studyMaterial/viewYoutube';
+$route['viewYoutube/(:num)'] = 'studyMaterial/viewYoutube/$1';
+$route['addYoutubeToDB'] = "studyMaterial/addYoutubeToDB";
+$route['editYoutube/(:any)'] = "studyMaterial/editYoutube/$1";
+$route['updateYoutube'] = "studyMaterial/updateYoutube";
+$route['deleteYoutube'] = "studyMaterial/deleteYoutube";
+$route['getYoutubeInfoById'] = "studyMaterial/getYoutubeInfoById";
+
+//study metrials update
+$route['viewStudyMaterials'] = "studyMaterial/viewStudyMaterials";
+$route['viewStudyMaterials/(:any)'] = "studyMaterial/viewStudyMaterials/$1";
+$route['addNewStudyMaterials'] = "studyMaterial/addNewStudyMaterials";
+$route['deleteStudyMaterials'] = "studyMaterial/deleteStudyMaterials";
+$route['getStreamNameByTermName'] = "studyMaterial/getStreamNameByTermName";
+
+
+
+// time table
+$route['timeTableDetails'] = "timetable/timeTableDetails";
+$route['addNewClass'] = "timetable/addNewClass";
+$route['get_class'] = "timetable/get_class";
+$route['addTimeTable/(:any)'] = "timetable/addTimeTable/$1";
+$route['addTimeTableToDB'] = "timetable/addTimeTableToDB";
+
+// class timings for time table
+$route['addClassTimings'] = "settings/addClassTimings";
+$route['deleteClassTimings'] = "settings/deleteClassTimings";
+
+$route['getAssignedSubjects'] = "timetable/getAssignedSubjects";
+$route['deleteClassInfo'] = "timetable/deleteClassInfo";
+
+
+
+$route['getStaffSubjectInfo'] = "timetable/getStaffSubjectInfo";
+$route['addMultipleTimeTable'] = "timetable/addMultipleTimeTable";
+$route['addMultipleTimeTableToDB'] = "timetable/addMultipleTimeTableToDB";
+$route['getClassTimimgsByWeekId'] = "timetable/getClassTimimgsByWeekId";
+
+// dashboard staff info
+$route['getAllStaffInfo'] = "staffs/getAllStaffInfo";
+
+// student suggestion
+$route['suggestionListing'] = 'portalSuggestion/suggestionListing';
+$route['suggestionListing/(:num)'] = 'portalSuggestion/suggestionListing/$1';
+$route['updateManagementMsg'] = 'portalSuggestion/updateManagementMsg';
+$route['getSuggestionById'] = 'portalSuggestion/getSuggestionById';
+$route['getStudentMessageById'] = 'portalSuggestion/getStudentMessageById';
+$route['enableSuggestion'] = 'portalSuggestion/enableSuggestion';
+$route['disableSuggestion'] = 'portalSuggestion/disableSuggestion';
+$route['sendMsgByStudentId'] = 'portalSuggestion/sendMsgByStudentId';
+
+// student portal registration
+$route['studentRegisterListing'] = 'portalRegistration/studentRegisterListing';
+$route['studentRegisterListing/(:any)'] = 'portalRegistration/studentRegisterListing/$1';
+$route['updateStudentPassword'] = 'portalRegistration/updateStudentPassword';
+$route['deleteRegisteredStudent'] = 'portalRegistration/deleteRegisteredStudent';
+
+// dashboard news feed 
+$route['addNewsFeed'] = "user/addNewsFeed";
+$route['deleteNewsFeed'] = "user/deleteNewsFeed";
+$route['likeNewsFeed'] = "user/likeNewsFeed";
+$route['disLikeNewsFeed'] = "user/disLikeNewsFeed";
+
+// internal exam
+$route['addInternalMark'] = "exam/addInternalMark";
+$route['getStreamSectionByTerm'] = "exam/getStreamSectionByTerm";
+$route['getStudentForInternalMark'] = "exam/getStudentForInternalMark";
+$route['addStudentInternalMarkByStaff'] = "exam/addStudentInternalMarkByStaff";
+$route['getInternalMarkSheet'] = "exam/getInternalMarkSheet";
+
+// route for attendance
+$route['getAttendanceDetails'] = "studentAttendance/getAttendanceDetails";
+$route['getAttendanceDetails/(:any)'] = "studentAttendance/getAttendanceDetails/$1";
+$route['getStudentInfoForAttendance'] = "studentAttendance/getStudentInfoForAttendance";
+$route['addSingleSubjectAttendanceByStaff'] = "studentAttendance/addSingleSubjectAttendanceByStaff";
+
+// route for time table shifting
+$route['addTimetableDayShifting'] = "settings/addTimetableDayShifting";
+$route['deleteDayShifting'] = "settings/deleteDayShifting";
+$route['addFeesName'] = "settings/addFeesName";
+$route['deleteFeeName'] = "settings/deleteFeeName";
+
+// route for attendance absent list
+$route['viewAttendanceInfo'] = "studentAttendance/viewAttendanceInfo";
+$route['viewAttendanceInfo/(:any)'] = "studentAttendance/viewAttendanceInfo/$1";
+$route['deleteStudentAttendance'] = "studentAttendance/deleteStudentAttendance";
+$route['downloadStudentsAttendanceReport'] = "studentAttendance/downloadStudentsAttendanceReport";
+
+// attendance class completed 
+$route['viewClassCompletedInfo'] = "studentAttendance/viewClassCompletedInfo";
+$route['viewClassCompletedInfo/(:any)'] = "studentAttendance/viewClassCompletedInfo/$1";
+$route['deleteClassCompleted'] = "studentAttendance/deleteClassCompleted";
+
+// student attendance report
+$route['downloadAbsentedStudentInfo'] = "studentAttendance/downloadAbsentedStudentInfo";
+$route['downloadClassCompletedReport'] = "studentAttendance/downloadClassCompletedReport";
+
+
+// add bank account details
+$route['viewAccount'] = "account/viewAccount";
+$route['get_account'] = "account/get_account";
+$route['addNewAccount'] = "account/addNewAccount";
+$route['addAccountDetails'] = "account/addAccountDetails";
+$route['editAccount/(:any)'] = "account/editAccount/$1";
+$route['updateAccount'] = "account/updateAccount";
+$route['deleteAccount'] = "account/deleteAccount";
+
+// add admission fees structure
+$route['viewFeeStructure'] = "feeStructure/viewFeeStructure";
+$route['viewFeeStructure/(:any)'] = "feeStructure/viewFeeStructure/$1";
+$route['addNewFeeStructure'] = "feeStructure/addNewFeeStructure";
+$route['addFeeStructure'] = "feeStructure/addFeeStructure";
+$route['editFeeStructure/(:any)'] = "feeStructure/editFeeStructure/$1";
+$route['updateFeeStructure'] = "feeStructure/updateFeeStructure";
+$route['deleteFeeStrtucture'] = "feeStructure/deleteFeeStrtucture";
+$route['getStreamByTerm'] = "feeStructure/getStreamByTerm";
+
+// fee concession
+$route['viewFeeConcession'] = "fee/viewFeeConcession";
+$route['viewFeeConcession/(:any)'] = "fee/viewFeeConcession/$1";
+$route['addConcession'] = "fee/addConcession";
+$route['editConcession/(:any)'] = "fee/editConcession/$1";
+$route['updateConcession'] = "fee/updateConcession";
+$route['approveConcession'] = "fee/approveConcession";
+$route['rejectConcession'] = "fee/rejectConcession";
+
+//fee Installment Info
+$route['feeInstallmentListing'] = "fee/feeInstallmentListing";
+$route['feeInstallmentListing/(:any)'] = "fee/feeInstallmentListing/$1";
+$route['addFeeInstallment'] = "fee/addFeeInstallment";
+$route['editFeeInstallment/(:any)'] = "fee/editFeeInstallment/$1";
+$route['updateFeeInstallment'] = "fee/updateFeeInstallment";
+$route['deleteFeeInstallment'] = "fee/deleteFeeInstallment";
+
+$route['feePayNow'] = "fee/feePayNow";
+$route['addFeePaymentInfo'] = "fee/addFeePaymentInfo";
+$route['getStudentFeePaymentInfo'] = "fee/getStudentFeePaymentInfo";
+$route['feePaymentReceiptPrint/(:any)'] = "fee/feePaymentReceiptPrint/$1";
+
+$route['feePaymentReceiptPrint_old/(:any)'] = "fee/feePaymentReceiptPrint_old/$1";
+
+$route['feePaymentReceiptPrintNewAdm/(:any)'] = "fee/feePaymentReceiptPrintNewAdm/$1";
+$route['feePaymentReceiptPrintOld/(:any)'] = "fee/feePaymentReceiptPrintOld/$1";
+$route['feePaymentReceiptPrint_old2019/(:any)'] = "fee/feePaymentReceiptPrint_old2019/$1";
+
+
+
+//get online fee paid info
+$route['onlineFeePaidInfo'] = "fee/onlineFeePaidInfo";
+$route['onlineFeePaidInfo/(:any)'] = "fee/onlineFeePaidInfo/$1";
+// bank settlement
+$route['addBankSettlementSubmit'] = "account/addBankSettlementSubmit";
+
+//fee report
+$route['download_II_PUC_StudentFeePaidReport'] = "fee/download_II_PUC_StudentFeePaidReport";
+
+// this routes for Push Notification
+$route['pushNotification'] = 'push_Notification';
+$route['push_notification/sendNotification'] = "push_Notification/validateForm"; 
+$route['push_notification/blocked_user'] = 'push_Notification/addBlockedUser';
+$route['push_notification/register_token'] = 'push_Notification/addFcmToken';
+$route['staffNotifications'] = 'push_Notification/getStaffNotifications';
+// $route['studentNotifications'] = 'push_Notification/getStudentNotifications';
+$route['studentNotifications'] = "push_Notification/studentNotifications";
+$route['studentNotifications/(:any)'] = "push_Notification/studentNotifications/$1";
+$route['deleteStudentNotification'] = 'push_Notification/deleteStudentNotification';
+
+//Admission Enquiry
+$route['enquiryListing'] = "enquiry/enquiryListing";
+$route['enquiryListing/(:any)'] = "enquiry/enquiryListing/$1";
+$route['deleteEnquiry'] = "enquiry/deleteEnquiry";
+$route['addNewAdmission'] = "enquiry/addNewAdmission";
+$route['admissionEnquiryDetails'] = "enquiry/admissionEnquiryDetails";
+$route['addAdmissionInfoToDB'] = "enquiry/addAdmissionInfoToDB";
+$route['editAdmission/(:any)'] = "enquiry/editAdmission/$1";
+$route['updateAdmission'] = "enquiry/updateAdmission";
+$route['checkMobileNumberOrEmailExists'] = "enquiry/checkMobileNumberOrEmailExists";
+
+
+
+// reports
+$route['reportDashboard'] = "reports/reportDashboard";
+$route['downloadAdmissionEnquiryExcelReport'] = "reports/downloadAdmissionEnquiryExcelReport";
+$route['download_fee_structure_excel'] = "reports/download_fee_structure_excel";
+$route['downloadApplicationStack'] = "reports/downloadApplicationStack";
+$route['downloadAdmissionRegisteredStudent'] = "reports/downloadAdmissionRegisteredStudent";
+
+$route['shorlitedStudentPDF_PRINT'] = "reports/shorlitedStudentPDF_PRINT";
+
+
+$route['downloadAdmittedStudentInfo'] = "reports/downloadAdmittedStudentInfo";
+
+$route['downloadDayWiseFeeReport'] = "reports/downloadDayWiseFeeReport";
+
+
+
+
+//student Election routes
+$route['electionDetails'] = "election/electionDetails";
+$route['electionDetails/(:any)'] = "election/electionDetails/$1";
+$route['addNewStudentElection'] = "election/addNewStudentElection";
+$route['editStudentElection/(:any)'] = "election/editStudentElection/$1";
+$route['updateStudentElection'] = "election/updateStudentElection";
+$route['deleteStudentElection'] = "election/deleteStudentElection";
+
+// election settings
+$route['addPost'] = "settings/addPost";
+$route['deletePost'] = "settings/deletePost";
+
+// sms
+$route['sendSingleSMS'] = 'sMS/sendSingleSMS';
+
+
+//Admission 2021
+$route['admissionDashboard'] = "application/admissionDashboard";
+$route['getAllApplicationInfo'] = "application/getAllApplicationInfo";
+$route['getAllApplicationInfo/(:any)'] = "application/getAllApplicationInfo/$1";
+$route['updateStudentAdmissionDocument'] = "application/updateStudentAdmissionDocument";
+$route['updateSchoolData'] = "application/updateSchoolData";
+$route['updateStudentPersonalData'] = "application/updateStudentPersonalData";
+$route['updateStudentPersonalData/(:any)'] = "application/updateStudentPersonalData/$1";
+$route['updateStudentCombination'] = "application/updateStudentCombination";
+$route['getStudentInfoByApplicationNumber'] = "application/getStudentInfoByApplicationNumber";
+
+$route['admissionGrievance'] = "application/admissionGrievance";
+$route['admissionGrievance/(:any)'] = "application/admissionGrievance/$1";
+
+$route['sendSMSForNewAdm'] = "application/sendSMSForNewAdm";
+
+
+
+// new admission routes 
+$route['getAdmissionPaymentPeningApplication'] = "application/getAdmissionPaymentPeningApplication";
+$route['getAdmissionPaymentPeningApplication/(:any)'] = "application/getAdmissionPaymentPeningApplication/$1";
+$route['applicationPaymentComplete'] = "application/applicationPaymentComplete";
+
+$route['newAdmission'] = "application/newAdmission";
+$route['newAdmission/(:any)'] = "application/newAdmission/$1";
+$route['getRejectedApplicationInfo'] = "application/getRejectedApplicationInfo";
+$route['getRejectedApplicationInfo/(:any)'] = "application/getRejectedApplicationInfo/$1";
+
+// shortlisted
+$route['getShortlistedApplication'] = "application/getShortlistedApplication";
+$route['getShortlistedApplication/(:any)'] = "application/getShortlistedApplication/$1";
+$route['updateShortListedStudents'] = 'application/updateShortListedStudents';
+$route['updateShortListedStudents/(:any)'] = 'application/updateShortListedStudents/$1';
+
+// edit single admission application 
+$route['editSingleStudentApplications/(:any)'] = "application/editSingleStudentApplications/$1";
+
+// interview status
+$route['updatedInterviewCompletedStudents'] = 'application/updatedInterviewCompletedStudents';
+// $route['updatedInterviewCompletedStudents/(:any)'] = "application/updatedInterviewCompletedStudents/$1";
+
+// admission registered students
+$route['getAdmissionRegisteredStudent'] = "application/getAdmissionRegisteredStudent";
+$route['getAdmissionRegisteredStudent/(:any)'] = "application/getAdmissionRegisteredStudent/$1";
+
+//paytm_payment
+$route['payTmPaymentProcess'] = "fee/payTmPaymentProcess";
+$route['payTmPaymentResponse'] = "fee/payTmPaymentResponse";
+
+// add fee type
+$route['addFeeType'] = "settings/addFeeType";
+$route['deleteFeeType'] = "settings/deleteFeeType";
+
+$route['getStreamNamesByProgram'] = "application/getStreamNamesByProgram";
+$route['updateApplicationStatus'] = "application/updateApplicationStatus"; 
+$route['viewSingleStudentAppliactions/(:any)'] = "application/viewSingleStudentAppliactions/$1";
+$route['viewPrintApplication/(:any)'] = "application/viewPrintApplication/$1";
+$route['getCasteInfoById'] = "application/getCasteInfoById";  
+$route['getAllApplicationFeePaidInfo'] = "application/getAllApplicationFeePaidInfo"; 
+$route['getAllApplicationFeePaidInfo/(:any)'] = "application/getAllApplicationFeePaidInfo/$1";
+
+
+//leave routes
+$route['updateLeaveInfo'] = "staffs/updateLeaveInfo";
+$route['staffLeaveInfo'] = "leave/staffLeaveInfo";
+$route['viewApplyLeave'] = "leave/viewApplyLeave";
+
+$route['applyLeaveByStaff'] = "leave/applyLeaveByStaff";
+$route['get_applied_leave_info'] = "leave/get_applied_leave_info";
+
+$route['getStaffLeaveInfoById'] = "leave/getStaffLeaveInfoById";
+$route['updateStaffLeaveInfo'] = "leave/updateStaffLeaveInfo";
+$route['deleteAppliedLeave'] = "leave/deleteAppliedLeave";
+$route['editStaffLeaveInfo/(:any)'] = "leave/editStaffLeaveInfo/$1";
+$route['updateStaffLeaveInfoByAdmin'] = "leave/updateStaffLeaveInfoByAdmin";
+
+$route['get_single_staff_applied_leave_info'] = "leave/get_single_staff_applied_leave_info";
+
+$route['viewAdminApplyLeavePage'] = "leave/viewAdminApplyLeavePage";
+$route['applyStaffLeaveByAdmin'] = "leave/applyStaffLeaveByAdmin";
+//ajax call leave info 
+$route['getStaffLeaveInfoByStaffId'] = "leave/getStaffLeaveInfoByStaffId";
+
+$route['calendar'] = "calendar";
+$route['api/calendar/addEvent'] = "calendar/addEvent";
+$route['api/calendar/getCalendarEvents'] = "calendar/getCalendarEvents";
+$route['api/calendar/deleteEvent'] = "calendar/deleteEvent";
+$route['api/calendar/updateEvent'] = "calendar/updateEvent";
+
+
+// management fees
+$route['viewManagementFeeInfo'] = "fee/viewManagementFeeInfo";
+$route['viewManagementFeeInfo/(:any)'] = "fee/viewManagementFeeInfo/$1";
+$route['addManagementFeeInfo'] = "fee/addManagementFeeInfo"; 
+$route['editMngtFee/(:any)'] = "fee/editMngtFee/$1";
+$route['updateMngtFee'] = "fee/updateMngtFee"; 
+$route['deleteMngtFee'] = "fee/deleteMngtFee";
+$route['printMngtFeeReceipt/(:any)'] = "fee/printMngtFeeReceipt/$1";
+
+//get student info for fee payment
+$route['getStudentInfoByTerm'] = "fee/getStudentInfoByTerm";
+
+
+$route['dayWiseStructureFeePayment'] = "reports/dayWiseStructureFeePayment";
+
+//this routes for ChatBot
+$route['chatBot'] = "chatbot";
+$route['chatBot/chat'] = "chatbot/chat";
+$route['chatBot/GET_NOTIFICATIONS'] = "chatbot/getNotifications";
+$route['chatBot/GET_HOLIDAYS'] = "chatbot/getHolidays";
+$route['chatBot/GET_EXAMS'] = "chatbot/getExams";
+
+
+
+$route['getAllFeePaymentInfo'] = "fee/getAllFeePaymentInfo";
+
+$route['getAllFeePaymentInfo/(:any)'] = "fee/getAllFeePaymentInfo/$1";
+
+
+
+// download consolidated mark report - assignment
+$route['downloadExamMarkSheet'] = "reports/downloadExamMarkSheet";
+
+$route['processTheFeePayment'] = "fee/processTheFeePayment";
+
+
+// download consolidated mark report - assignment
+$route['downloadAssignmentExamMarkReport'] = "reports/downloadAssignmentExamMarkReport";
+
+// study certificate
+$route['generateStudyCertificate'] = "students/generateStudyCertificate";
+
+// conduct certificate
+$route['generateConductCertificate'] = "students/generateConductCertificate";
+
+
+
+  
+// route for website announcements
+$route['announcementListing'] = 'websiteAnnouncement/announcementListing';
+$route['announcementListing/(:num)'] = "websiteAnnouncement/announcementListing/$1";
+$route['addNewMessage'] = 'websiteAnnouncement/addNewMessage';
+$route['addNewMessageToDb'] = 'websiteAnnouncement/addNewMessageToDb';
+$route['editMessage/(:num)'] = "websiteAnnouncement/editMessage/$1";
+$route['updateMessage'] = 'websiteAnnouncement/updateMessage';
+$route['disableAnnouncement'] = 'websiteAnnouncement/disableAnnouncement';
+$route['enableAnnouncement'] = 'websiteAnnouncement/enableAnnouncement';
+
+// route for website Event List 
+$route['eventListing'] = 'websiteEvent/eventListing';
+$route['eventListing/(:num)'] = "websiteEvent/eventListing/$1";
+$route['addNewEvent'] = 'websiteEvent/addNewEvent';
+$route['addNewEventToDb'] = 'websiteEvent/addNewEventToDb';
+$route['editEvent/(:num)'] = "websiteEvent/editEvent/$1";
+$route['updateEvent'] = 'websiteEvent/updateEvent';
+$route['enableEvent'] = 'websiteEvent/enableEvent';
+$route['disableEvent'] = 'websiteEvent/disableEvent';
+
+// route for website News & Event
+$route['newsListing'] = 'websiteNews/newsListing';
+$route['newsListing/(:num)'] = "websiteNews/newsListing/$1";
+$route['addNews'] = 'websiteNews/addNews';
+$route['addNewToDb'] = 'websiteNews/addNewToDb';
+$route['editNews/(:num)'] = "websiteNews/editNews/$1";
+$route['updateNews'] = 'websiteNews/updateNews';
+$route['disableNews'] = 'websiteNews/disableNews';
+$route['enableNews'] = 'websiteNews/enableNews';
+
+// route for website Testimonials
+$route['feedbackListing'] = 'websiteTestimonials/feedbackListing';
+$route['feedbackListing/(:num)'] = "websiteTestimonials/feedbackListing/$1";
+$route['addTestimonials'] = 'websiteTestimonials/addTestimonials';
+$route['addTestimonialsToDb'] = 'websiteTestimonials/addTestimonialsToDb';
+$route['editTestimonials/(:num)'] = "websiteTestimonials/editTestimonials/$1";
+$route['updateTestimonials'] = 'websiteTestimonials/updateTestimonials';
+$route['disableTestimonial'] = 'websiteTestimonials/disableTestimonial';
+$route['enableTestimonial'] = 'websiteTestimonials/enableTestimonial';
+
+
+// admission report
+$route['getAllMeritListByApproved'] = "reports/getAllMeritListByApproved";
+$route['getAllMeritList'] = "reports/getAllMeritList";
+
+
+$route['getAllShortlistedList'] = "reports/getAllShortlistedList";
+
+// staff report
+$route['downloadStaffExcelReport'] = "reports/downloadStaffExcelReport";
+
+
+// I PUC 2021
+$route['newAdm_feePayNow'] = "fee/newAdm_feePayNow";
+
+$route['getNewAdm_StudentFeePaymentInfo'] = "fee/getNewAdm_StudentFeePaymentInfo";
+
+
+
+$route['newAdm_AddFeePaymentInfo'] = "fee/newAdm_AddFeePaymentInfo";
+
+
+$route['getAllFeePaymentInfoNewAdm'] = "fee/getAllFeePaymentInfoNewAdm";
+$route['getAllFeePaymentInfoNewAdm/(:any)'] = "fee/getAllFeePaymentInfoNewAdm/$1";
+
+
+
+$route['addBankSettlementSubmitNewAdm'] = "fee/addBankSettlementSubmitNewAdm";
+
+$route['feePaymentReceiptPrintNewAdmIPUC/(:any)'] = "fee/feePaymentReceiptPrintNewAdmIPUC/$1";
+
+
+
+// print marks card assignment exam 
+$route['getMarkCardToPrint/(:any)'] = "students/getMarkCardToPrint/$1";
+$route['getMarkCardToPrint'] = "students/getMarkCardToPrint";
+
+//print annual report
+$route['getAnnualMarkCardToPrint/(:any)'] = "students/getAnnualMarkCardToPrint/$1";
+$route['getAnnualMarkCardToPrint'] = "students/getAnnualMarkCardToPrint";
+$route['getAnnualMarkCardToPrint2022/(:any)'] = "students/getAnnualMarkCardToPrint2022/$1";
+$route['getAnnualMarkCardToPrint2022'] = "students/getAnnualMarkCardToPrint2022";
+
+// Job portal routes
+$route['jobPortal'] = "jobPortal";
+$route['jobPortal/viewApplicant'] = "jobPortal/viewApplicant";
+$route['jobPortal/viewApplicant/$1'] = "jobPortal/viewApplicant/$1";
+$route['jobPortal/deleteApplicant'] = "jobPortal/deleteApplicant";
+
+// staff subject attendance
+$route['getAssignedSubjectAttendance'] = "studentAttendance/getAssignedSubjectAttendance";
+
+// add student batch for lab
+$route['updateStudentBatch'] = "students/updateStudentBatch";
+
+
+// print marks card assignment exam 
+$route['generateUnitTestExamReportCard/(:any)'] = "students/generateUnitTestExamReportCard/$1";
+$route['generateUnitTestExamReportCard'] = "students/generateUnitTestExamReportCard";
+
+// readmission & new admission order id process
+$route['reAdmissionOrderIdProcess'] = "fee/reAdmissionOrderIdProcess";
+$route['newAdmissionOrderIdProcess'] = "fee/newAdmissionOrderIdProcess";
+
+// mun event info
+$route['getMunEventInfo/(:any)'] = "mun/getMunEventInfo/$1";
+$route['getMunEventInfo'] = "mun/getMunEventInfo";
+$route['deleteEvent'] = "mun/deleteEvent";
+$route['viewEventParticipantInfo/(:any)'] = "mun/viewEventParticipantInfo/$1";
+
+$route['getInternalRegistration'] = "mun/getInternalRegistration";
+$route['getInternalRegistration/(:any)'] = "mun/getInternalRegistration/$1";
+$route['deleteInternalEvent'] = "mun/deleteInternalEvent";
+
+// MUN REPORT
+$route['downloadMunExternalReport'] = "reports/downloadMunExternalReport";
+$route['downloadMunInternalReport'] = "reports/downloadMunInternalReport";
+
+//late comer info
+$route['viewLatecomerInfo'] = "latecomer/viewLatecomerInfo";
+$route['viewLatecomerInfo/(:any)'] = "latecomer/viewLatecomerInfo/$1";
+$route['deleteLatecomer'] = "latecomer/deleteLatecomer";
+$route['latecomerInfoDownload'] = "latecomer/latecomerInfoDownload";
+//single student latecomer info
+$route['getLatecomerByStudentId'] = "latecomer/getLatecomerByStudentId";
+$route['confirmLatecomerInfo'] = "latecomer/confirmLatecomerInfo";
+
+
+// exam analytics
+$route['viewExamAnalyticalBySection'] = "analytics/viewExamAnalyticalBySection";
+$route['getSectionPeformanceAnalytics'] = "analytics/getSectionPeformanceAnalytics";
+$route['getSectionPeformanceAnalyticsPdf'] = "analytics/getSectionPeformanceAnalyticsPdf";
+
+// verify student attendance
+$route['verifyStudentAttendance'] = "studentAttendance/verifyStudentAttendance";
+$route['getStudentInfoToVerifyAttendance'] = "studentAttendance/getStudentInfoToVerifyAttendance";
+$route['confirmStudentVerifyAttendance'] = "studentAttendance/confirmStudentVerifyAttendance";
+
+//report for 2020 fee pending 
+$route['download_fee_structure_excel_2020'] = "reports/download_fee_structure_excel_2020";
+
+//student feedback enabled
+$route['getFeedbackStudentInfo'] = "feedback/getFeedbackStudentInfo";
+$route['getFeedbackStudentInfo/(:any)'] = "feedback/getFeedbackStudentInfo/$1";
+$route['addStudentForFeedback'] = "feedback/addStudentForFeedback";
+$route['deleteStudentEnabled'] = "feedback/deleteStudentEnabled";
+
+$route['viewStudentFeedbackByStaff/(:any)'] = 'feedback/viewStudentFeedbackByStaff/$1';
+$route['pintStudentFeedbackResponse_21/(:any)'] = "feedback/pintStudentFeedbackResponse_21/$1";
+$route['addCommentToFeedbackByPrincipal/(:any)'] = "feedback/addCommentToFeedbackByPrincipal/$1";
+$route['pintStudentFeedbackResponse_22/(:any)'] = "feedback/pintStudentFeedbackResponse_22/$1";
+$route['pintStudentFeedbackResponse_23/(:any)'] = "feedback/pintStudentFeedbackResponse_23/$1";
+
+// route for printing Hall ticket
+$route['getFirstYearStudentHallTicket'] = 'students/getFirstYearStudentHallTicket';
+$route['getSecondYearStudentHallTicket'] = 'students/getSecondYearStudentHallTicket';
+
+// assign multiple student
+$route['addMultipleStudentForFeedback/(:any)'] = "feedback/addMultipleStudentForFeedback/$1";
+$route['addMultipleStudentForFeedback'] = "feedback/addMultipleStudentForFeedback";
+$route['deleteMultipleStudent/(:any)'] = "feedback/deleteMultipleStudent/$1";
+$route['deleteMultipleStudent'] = "feedback/deleteMultipleStudent";
+
+//hall ticket details
+$route['examListing'] = 'exam/examListing';
+$route['examListing/(:any)'] = 'exam/examListing/$1';
+$route['addExam'] = 'exam/addExam';
+$route['deleteExam'] = 'exam/deleteExam';
+$route['inactiveExam'] = 'exam/inactiveExam';
+$route['activeExam'] = 'exam/activeExam';
+
+//Annual I PU Marks sheet
+$route['getFullMarksOfStudent'] = 'reports/getFullMarksOfStudent';
+
+$route['generateExcellenciaCertificate'] = "students/generateExcellenciaCertificate";
+
+
+//new fee
+$route['newFeePayNow'] = "fee/newFeePayNow";
+$route['getNewStudentFeePaymentInfo'] = "fee/getNewStudentFeePaymentInfo";
+$route['newAddFeePaymentInfo'] = "fee/newAddFeePaymentInfo";
+
+//Bio Data
+$route['getStudentBiodata'] = "students/getStudentBiodata";
+
+$route['addAllApprovedStudent'] = "settings/addAllApprovedStudent";
+
+// routes for Stock Management
+$route['viewStockSettings'] = "stock/viewStockSettings";
+$route['addStockName'] = "stock/addStockName";
+$route['deleteStockName'] = "stock/deleteStockName";
+$route['addStockType'] = "stock/addStockType";
+$route['deleteStockType'] = "stock/deleteStockType";
+$route['addStockDepartment'] = "stock/addStockDepartment";
+$route['deleteStockDepartment'] = "stock/deleteStockDepartment";
+$route['addStockProduct'] = "stock/addStockProduct";
+$route['deleteStockProduct'] = "stock/deleteStockProduct";
+$route['viewStockInListing'] = "stock/viewStockInListing";
+$route['viewStockInListing/(:any)'] = "stock/viewStockInListing/$1";
+$route['addStockIn'] = "stock/addStockIn";
+$route['editStockInView/(:any)'] = "stock/editStockInView/$1";
+$route['updateStockIn'] = "stock/updateStockIn";
+$route['deleteStockIn'] = "stock/deleteStockIn";
+$route['addStockOut'] = "stock/addStockOut";
+$route['viewStockOutListing'] = "stock/viewStockOutListing";
+$route['viewStockOutListing/(:any)'] = "stock/viewStockOutListing/$1";
+$route['editStockOutView/(:any)'] = "stock/editStockOutView/$1";
+$route['updateStockOut'] = "stock/updateStockOut";
+$route['deleteStockOut'] = "stock/deleteStockOut";
+
+$route['viewStockSales'] = "stock/viewStockSales";
+$route['viewStockSales/(:any)'] = "stock/viewStockSales/$1";
+$route['addSalesToDB'] = "stock/addSalesToDB";
+
+
+$route['getSupplementaryMarkPrint2022/(:any)'] = "students/getSupplementaryMarkPrint2022/$1";
+$route['getSupplementaryMarkPrint2022'] = "students/getSupplementaryMarkPrint2022";
+
+//Print councellor feedback
+$route['pintStudentCouncellorFeedbackResponse/(:any)'] = "feedback/pintStudentCouncellorFeedbackResponse/$1"; 
+
+
+$route['getAllCourseRegisterInfo'] = "students/getAllCourseRegisterInfo";
+$route['getAllCourseRegisterInfo/(:any)'] = "students/getAllCourseRegisterInfo/$1";
+
+
+
+
+$route['downloadCourseRegistrationReport'] = "reports/downloadCourseRegistrationReport";
+
+
+// print marks card assignment exam 
+$route['generateMidTermExamReportCard/(:any)'] = "students/generateMidTermExamReportCard/$1";
+$route['generateMidTermExamReportCard'] = "students/generateMidTermExamReportCard";
+
+// print marks card preparatory
+$route['generatePreparatoryExamReportCard/(:any)'] = "students/generatePreparatoryExamReportCard/$1";
+$route['generatePreparatoryExamReportCard'] = "students/generatePreparatoryExamReportCard";
