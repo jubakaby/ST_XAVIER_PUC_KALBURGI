@@ -188,7 +188,7 @@ foreach ($studentsRecords as $record) {
                             <th width="25" class="text-center" style="border-right: 1px solid white !important;">
                                 <img src="<?php echo base_url(); ?>assets/images/logo_sjpuch_v2.png" width="70" height="70" alt="PHOTO" class="sjpuch_logo" />
                             </th>
-                            <td width="500" style="text-align: center;border-left: 1px solid white !important;"><b class="title_2" style="font-size:19px">ST. JOSEPH'S PRE-UNIVERSITY COLLEGE</b><br>
+                            <td width="500" style="text-align: center;border-left: 1px solid white !important;"><b class="title_2" style="font-size:19px">ST. XAVIER'S PRE–UNIVERSITY COLLEGE, KALABURAGI</b><br>
                                 <p style="margin-top:-45px;">College Addres</p>
                                 <b style="font-size: 10px" class="">COLLEGE CODE : CODE <br></b>
                                 <b style="font-size: 14px" class="">STATEMENT OF MARKS<br> I PUC ANNUAL EXAMINATION MARCH/APRIL - 2022</b>

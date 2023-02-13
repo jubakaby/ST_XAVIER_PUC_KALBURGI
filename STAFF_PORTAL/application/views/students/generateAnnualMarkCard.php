@@ -86,7 +86,7 @@ table{
             <tr>
                 
                 <td  class="text-center">
-                    <b class="title">ST. JOSEPH'S PRE-UNIVERSITY COLLEGE</b>
+                    <b class="title">ST. XAVIER'S PRE–UNIVERSITY COLLEGE, KALABURAGI</b>
                     <p style="margin-top:-45px;">College Addres</p>
                    <!--  <p style="margin-top: 10px;" class="text-center mb-2">Recognised by the Department of Pre University Education, Government of Karnataka</p> -->
                 </td>

@@ -6,7 +6,7 @@
 
       <meta charset="UTF-8">
 
-      <title>Schoolphins - SJPUCH : Thank You</title>
+      <title>Schoolphins - STXPUC : Thank You</title>
 
       <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
@@ -74,13 +74,13 @@
 
             <div class="col-xs-12 text-center">
 
-              <img src="<?php echo base_url(); ?>assets/dist/img/logoSJPUCH.png" height="80px">
+              <img src="<?php echo base_url(); ?>assets/dist/img/logo_stxpuc.jpg" height="80px">
 
             </div>
 
             <div class="col-xs-12 text-center mb-2">
 
-              <span><b style="font-size: 25px;"><span class="title_green">School</span><span class="title_blue">phins</span> - <span class="title_blue">SJPUCH</span></b></span>
+              <span><b style="font-size: 25px;"><span class="title_green">School</span><span class="title_blue">phins</span> - <span class="title_blue">STXPUC</span></b></span>
 
             </div>
 

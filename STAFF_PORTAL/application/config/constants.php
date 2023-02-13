@@ -110,8 +110,8 @@ define('CURRENT_YEAR',                            '2022');
 define('SEGMENT',								2);
 
 define('TITLE','ST. XAVIER\'S PRE–UNIVERSITY COLLEGE, KALABURAGI');
-define('EXCEL_TITLE','ST. XAVIER\’S PRE–UNIVERSITY COLLEGE, KALABURAGI');
-define('SUB_TITLE','SJPUCH');
+define('EXCEL_TITLE','ST. XAVIER’S PRE–UNIVERSITY COLLEGE, KALABURAGI');
+define('SUB_TITLE','STXPUC');
 define('INSTITUTION_LOGO','assets/dist/img/logo_stxpuc.jpg');
 define('FIRST_YEAR','2020-21');
 define('SECOND_YEAR','2019-20');

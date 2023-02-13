@@ -56,7 +56,7 @@ if ($warning) {
                     <span class="page-title">
                         <i class="fas fa-tachometer-alt"></i> Dashboard / Overview
                     </span>
-                    <img class="float-right" height="35" src="<?php echo base_url(); ?>assets/images/stjoseph.jpg" />
+                    <img class="float-right" height="35" src="<?php echo base_url(); ?>assets/dist/img/logo_stxpuc.jpg" />
                 </div>
             </div>
         </div>

@@ -165,7 +165,7 @@ border-radius: 50%;
                                     <div id="signature_part"  class="col-7 description">
                                         <p>Signature of </p>
                                         <p>Head of the Institution </p>
-                                        <p>(Sri C R RAJENDRA)</p>
+                                        <p>(Test)</p>
                                     </div>
                                 </div>
                             </div>

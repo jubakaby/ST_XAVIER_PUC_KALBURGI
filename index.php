@@ -12,7 +12,7 @@
     <meta name="author" content="Schoolphins">
     <link rel="icon" href="log_stxpuc.jpg">
 
-    <title>SJPUCH Portal</title>
+    <title>STXPUC Portal</title>
 
     <script src="index_.js" defer></script>
     <!-- Bootstrap core CSS -->
@@ -101,11 +101,11 @@ body {
         <img class="mb-3" src="logo_stxpuc.jpg" alt="STXPUC" width="122" height="122">
         <h2 class="h3 mb-3 font-weight-bold text-black">Welcome to STXPUC Portal</h2>
         <a style="color:black" href="https://sjpuchassan.schoolphins.com/staff" class="btn btn-lg btn-primary btn-block"
-            type="submit">Staff Login</a>
+            type="submit">Faculty Login</a>
         <a style="color:black" href="https://sjpuchassan.schoolphins.com/student" class="btn btn-lg btn-primary btn-block" type="submit">Student/Parent Login</a>
 
         <button class="btn btn-block btn-success add-button">Click here to install as App</button>
-        <p class="mt-5 mb-3 text-black">© 2020</p>
+        <p class="mt-5 mb-3 text-black">© 2023</p>
 
     </form>
    

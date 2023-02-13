@@ -343,7 +343,7 @@ $("#btn-chat").click(function() {
                     }else{
                         newHtml += '<div class="chat_message_wrapper chat_message_right" id="chatReply'+value.row_id+'">'
                         newHtml += '<div class="chat_user_avatar">'
-                        newHtml += '<span id="mngtImage"><img src="'+baseURL+'assets/dist/img/logo_sjpuch.jpg" alt="Management Image" class="md-user-image"/></span>'
+                        newHtml += '<span id="mngtImage"><img src="'+baseURL+'assets/dist/img/logo_stxpuc.jpg" alt="Management Image" class="md-user-image"/></span>'
                         newHtml += '</div>'
                         newHtml += '<ul class="chat_message">'
                         newHtml += '<li>'

@@ -137,7 +137,7 @@ table>tbody>tr>td {
                             <div class="enable-print">
                                 <div style="margin-top:20px" class="row ">
                                     <div class="col-12 text-center">
-                                        <div class="title">ST JOSEPH'S PRE-UNIVERSITY COLLEGE</div> 
+                                        <div class="title">ST. XAVIER'S PRE–UNIVERSITY COLLEGE, KALABURAGI</div> 
                                             <!-- <p class="text-center sub_title text-uppercase">F. M. Cariappa (Residency) Road, Bengaluru – 560025, INDIA</p> -->
                                         <div style="font-family: serif;" class="text-center stm_work"><u class="font-weight-bold">CONDUCT CERTIFICATE</u></div>
                                     </div>
@@ -168,7 +168,7 @@ table>tbody>tr>td {
                                 <div class="row" style="margin-top: 40px;">
                                     <div class="col-6 ">
                                         <p class="footer_text">Date : <?php echo date('d-m-Y'); ?></p>
-                                        <p class="footer_text">Bengaluru</p>
+                                        <p class="footer_text">Kalaburgi</p>
                                     </div>
                                     <div id="signature_part"  class="col-6 ">
                                         <!-- <br/><br/> -->

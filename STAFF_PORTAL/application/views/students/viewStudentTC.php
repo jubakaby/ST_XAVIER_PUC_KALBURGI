@@ -261,7 +261,7 @@ h4{
                                 <div class="row" style="margin-top: -38px;">
                                     <div class="col-lg-12 col-sm-12 col-12">
                                         <div class="header-heading text-center" style="margin-bottom: 10px;">
-                                            <b class="mb-1" style="font-size: 36px; text-transform: uppercase;font-family: serif;">St. Joseph’s Pre-University College</b>
+                                            <b class="mb-1" style="font-size: 30px;font-weight: 400; text-transform: uppercase;font-family: serif;">ST. XAVIER'S PRE–UNIVERSITY COLLEGE, KALABURAGI</b>
                                             <p class="mb-1" style="font-size: 18px;font-weight: 600;">Address</p>
                                             <b style="font-size: 25px;"><b>TRANSFER CERTIFICATE</b></b>
                                         </div>
@@ -374,12 +374,12 @@ h4{
                                         <h6 class="place_date">Date &nbsp;&nbsp;: <?php echo date('d/m/Y',strtotime($record->created_date_time)); ?></h6>
                                     </div>
                                     <div class="col-12">
-                                        <h6 class="place_date">Place&nbsp;: Bengaluru</h6>
+                                        <h6 class="place_date">Place&nbsp; : Kalaburgi</h6>
                                     </div>
                                 </div><br><br><br><br>
                                 <div class="row" style="margin-top:12px;">
                                     <div class="col-12">
-                                        <h4 class="text-center" style="font-size: 25px;margin-bottom: 0px;"> <b>St. Joseph's Pre-University College</b></h4>
+                                        <h4 class="text-center" style="font-size: 25px;margin-bottom: 0px;"> <b>ST. XAVIER'S PRE–UNIVERSITY COLLEGE, KALABURAGI</b></h4>
                                         <p class="text-center sub_title">Address</p>
                                         <table class="table table_declaration">
                                             <tr>
@@ -426,7 +426,7 @@ h4{
                                                 <h6 class="place_date" style="font-size: 16px;">Date &nbsp;&nbsp;: <?php echo date('d/m/Y',strtotime($record->created_date_time)); ?></h6>
                                             </div>
                                             <div class="col-12">
-                                                <h6 class="place_date" style="font-size: 16px;">Place&nbsp;: Bengaluru <span class="footer_sign">PRINCIPAL</span></h6>
+                                                <h6 class="place_date" style="font-size: 16px;">Place&nbsp;: Kalaburgi <span class="footer_sign">PRINCIPAL</span></h6>
                                             </div>
                                         </div>
                                     </div>

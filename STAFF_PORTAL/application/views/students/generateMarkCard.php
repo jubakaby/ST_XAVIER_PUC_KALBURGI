@@ -71,7 +71,7 @@ table{
                     <img  src="<?php echo base_url(); ?>assets/dist/img/logo_sjpuch.jpg" height="80" alt="SJPUC Logo" class="sjpuch_logo" />
                 </th>
                 <td>
-                    <b class="title">ST. JOSEPH'S PRE-UNIVERSITY COLLEGE</b>
+                    <b class="title">ST. XAVIER'S PRE–UNIVERSITY COLLEGE, KALABURAGI</b>
                     <p style="margin-top:-45px;">Address</p>
                     <p style="margin-top: 10px;" class="text-center mb-2">Recognised by the Department of Pre University Education, Government of Karnataka</p>
                 </td>

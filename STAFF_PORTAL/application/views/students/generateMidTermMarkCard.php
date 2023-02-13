@@ -208,7 +208,7 @@ color: #000 !important;
                                             </div>
                                             <div class="col-lg-8 col-sm-8 col-8" >
                                                 <div class="header-heading text-center">
-                                                    <b style="font-size: 30px; text-transform: uppercase;">St Joseph’s Pre University College</b>
+                                                    <b style="font-size: 30px; text-transform: uppercase;">ST. XAVIER'S PRE–UNIVERSITY COLLEGE, KALABURAGI</b>
                                                     <p class="mb-2" style="margin-top: -10px; font-size:16px;">Address</p>
                                                     <p class="mb-2" style="margin-top: -14px; font-size:16px;">Address</p>
                                                     <p class="mb-2" style="margin-top:-12px; font-size: 23px; margin-bottom: -12px; "><b>
