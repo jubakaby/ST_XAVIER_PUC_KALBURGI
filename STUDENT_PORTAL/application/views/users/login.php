@@ -72,7 +72,7 @@
                 <input type="password" class="form-control input_type" placeholder="Password" name="password" autocomplete="off" required/>
               </div>
               <button type="submit" class="btn btn-log btn-block">Student/Parent Log in</button>
-              <a href="<?php echo base_url() ?>userRegistration" class="btn btn_submit btn-block" value="Registration" style="margin-top:10px;">New Registration</a>
+              <!-- <a href="<?php echo base_url() ?>userRegistration" class="btn btn_submit btn-block" value="Registration" style="margin-top:10px;">New Registration</a> -->
             </form>
             <div class="row">
                 <div class="col-sm-6 col-md-6">

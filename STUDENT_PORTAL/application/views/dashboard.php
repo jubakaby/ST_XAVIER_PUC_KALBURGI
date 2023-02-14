@@ -128,8 +128,8 @@ if ($noMatch) {
       </div>
     </div>
     <?php if ($studentInfo->program_name == 'COMMERCE') { ?>
-      <div class="col-lg-6 col-md-6 col-12 mb-4 padding_left_right_null">
-        <!-- Quick Post -->
+      <!-- <div class="col-lg-6 col-md-6 col-12 mb-4 padding_left_right_null">
+        <!-- Quick Post 
         <div class="card card-small">
           <div class="card-header border-bottom card_head_dashboard">
             <h6 class="m-0 text-dark">Course Registration</h6>
@@ -177,8 +177,8 @@ if ($noMatch) {
 
           </div>
         </div>
-        <!-- End Quick Post -->
-      </div>
+        <!-- End Quick Post 
+      </div> -->
     <?php } ?>
 
     <?php if (!empty($feedbackStatus)) {  ?>
@@ -1507,7 +1507,7 @@ Orientation Program
     </div> -->
     <?php //} 
     ?>
-    <div class="col-lg-6 col-md-6 col-12 mb-4 padding_left_right_null">
+    <!-- <div class="col-lg-6 col-md-6 col-12 mb-4 padding_left_right_null">
       <div class="card card-small">
         <div class="card-header border-bottom card_head_dashboard">
           <h6 class="mb-0 text-dark">Today's Announcement</h6>
@@ -1532,7 +1532,7 @@ Orientation Program
           ?>
               <li class="list-group-item d-flex px-3 notification_info">
                 <span class="text-semibold text-dark" style="font-weight:500"><?php echo $notification->message; ?></span>
-                <!-- <span class="ml-auto text-right text-fiord-blue text-semibold" style="font-weight:600">Date</span> -->
+                <!-- <span class="ml-auto text-right text-fiord-blue text-semibold" style="font-weight:600">Date</span> 
               </li>
             <?php }
           } else { ?>
@@ -1544,7 +1544,7 @@ Orientation Program
           </ul>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- End Top Notification Section -->
     <!-- New Feedback Component -->
     <div class="col-lg-6 col-md-6 col-12 mb-4 padding_left_right_null">

@@ -334,7 +334,7 @@
 
 
 
-                                        <li class="nav-item">
+                                        <!-- <li class="nav-item">
 
                                             <a class="nav-link" href="<?php echo base_url(); ?>viewOnlineClass">
 
@@ -344,7 +344,7 @@
 
                                             </a>
 
-                                        </li>
+                                        </li> -->
 
                                         <li class="nav-item">
 

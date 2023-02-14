@@ -98,6 +98,8 @@ define('TITLE','ST. XAVIER\'S PRE–UNIVERSITY COLLEGE, KALABURAGI');
 define('SUB_TITLE','STXPUC');
 define('INSTITUTION_LOGO','assets/dist/img/logo_stxpuc.jpg');
 define('TAB_TITLE','SchoolPhins-STXPUC');
+define('ADMIN_PATH','//localhost/ST_XAVIER_PUC_KALBURGI/STAFF_PORTAL/');
+
 /************************** EMAIL CONSTANTS *****************************/
 
 define('EMAIL_FROM',                            'info@schoolphins.com');		// e.g. email@example.com

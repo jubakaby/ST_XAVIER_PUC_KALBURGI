@@ -2,7 +2,7 @@
 $servername = "192.168.0.100";
 $username = "root";
 $password = "";
-$db = 'schoolphins_boys';//"schoolphins";//
+$db = 'db_stxavier_puc';//"schoolphins";//
 // $servername = "localhost";
 // $username = "root";
 // $password = "";

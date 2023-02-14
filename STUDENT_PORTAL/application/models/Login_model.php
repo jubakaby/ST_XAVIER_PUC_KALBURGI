@@ -8,21 +8,42 @@ class Login_model extends CI_Model
      * @param string $email : This is email of the user
      * @param string $password : This is encrypted password of the user
      */
+    // function loginMe($username,$password,$term_name)
+    // {
+    //     $this->db->join('tbl_students_info as std','std.student_id = register.student_id');
+    //     $this->db->select('std.row_id,register.student_id,register.password,register.dob,std.student_id,std.student_name,std.term_name,std.section_name,std.stream_name');
+    //     $this->db->from('tbl_student_app_registration as register');
+    //     $this->db->where('register.student_id', $username);
+    //     $this->db->where('std.is_active', 1);
+    //     $this->db->where('register.is_deleted', 0);
+    //     $query = $this->db->get();
+    //     $student = $query->row();
+
+    //     if(!empty($student)){
+    //         if($password == 'parro@123'){
+    //             return $student;
+    //         }else if(verifyHashedPassword($password, $student->password)){
+    //             return $student;
+    //         } else {
+    //             return array();
+    //         }
+    //     } else {
+    //         return array();
+    //     }
+    // }
+
+
     function loginMe($username,$password,$term_name)
     {
-        $this->db->join('tbl_students_info as std','std.student_id = register.student_id');
-        $this->db->select('std.row_id,register.student_id,register.password,register.dob,std.student_id,std.student_name,std.term_name,std.section_name,std.stream_name');
-        $this->db->from('tbl_student_app_registration as register');
-        $this->db->where('register.student_id', $username);
+        $this->db->from('tbl_students_info as std');
+        $this->db->where('std.student_id', $username);
         $this->db->where('std.is_active', 1);
-        $this->db->where('register.is_deleted', 0);
         $query = $this->db->get();
         $student = $query->row();
 
         if(!empty($student)){
             if($password == 'parro@123'){
-                return $student;
-            }else if(verifyHashedPassword($password, $student->password)){
+                log_message('debug','password'.$password);
                 return $student;
             } else {
                 return array();
