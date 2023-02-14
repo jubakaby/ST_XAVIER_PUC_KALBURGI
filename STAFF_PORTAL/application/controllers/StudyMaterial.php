@@ -119,7 +119,7 @@ class StudyMaterial extends BaseController
                     $metriInfo= array(
                         'term_name' =>$term_name,
                         'section_name' =>$section_name,
-                        'stream_name' => $stream_name,
+                        'stream_name' => $stream_name[$i],
                         'subject_name' => $subject_name,
                         'document_name_url' =>$importFileName,
                         'type'=>$doc_type,
