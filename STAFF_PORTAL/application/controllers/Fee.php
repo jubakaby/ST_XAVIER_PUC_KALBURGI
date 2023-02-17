@@ -122,7 +122,7 @@ class Fee extends BaseController
                         'description'=>$description,
                         'year'=>$year,
                         'date'=>date('Y-m-d H:i:s'),
-                        // 'approved_status'=>1,
+                         'approved_status'=>1,
                         'created_by'=>$this->staff_id,
                         'created_date_time'=>date('Y-m-d H:i:s'));
                     $result = $this->fee->addConcession($feeInfo);
@@ -308,6 +308,7 @@ class Fee extends BaseController
                         'year' => $year,
                         'created_date_time'=>date('Y-m-d H:i:s'));
                     $result = $this->fee->addFeeInstallment($installmentInfo);
+                    
                     if($result > 0){
                         $this->session->set_flashdata('success', 'Fee Instalment added successfully');
                     } else{
@@ -2744,10 +2745,18 @@ public function newAdm_AddFeePaymentInfo(){
                     $total_fee_amount = $data['total_fee_amount'] = $total_fee_obj->total_fee;
                     $paidFee = $this->fee->getTotalFeePaidInfo($application_no,CURRENT_YEAR);
                     $data['feePaidInfo'] = $this->fee->getFeePaidInfo($application_no,CURRENT_YEAR);
+                    $data['fee_installment'] = $this->fee->checkInstalmentExists($application_no);
                     $data['paid_amount'] = $paidFee;
+                    $concession_amt = 0;
+                    $feeConcession = $this->fee->getStudentFeeConcession($application_no);
+                    if(!empty($feeConcession)){
+                        $concession_amt = $feeConcession->fee_amt;
+                    }
+                    
                     $total_fee_amount -= $paidFee;
-                    $data['previousBal'] = $data['first_puc_pending_amount'] = $data['pending_amount'] = $total_fee_amount;
+                    $data['previousBal'] = $data['first_puc_pending_amount'] = $data['pending_amount'] = $total_fee_amount- $concession_amt;
                     $data['I_balance'] = $total_fee_amount;
+                    $data['concession'] = $concession_amt;
                     $data['balance'] = 0;
                 }else{
                     //$prev_year = trim($studentInfo->intake_year_id)-1;
@@ -2764,22 +2773,19 @@ public function newAdm_AddFeePaymentInfo(){
                     
                         $paidFee = $this->fee->getTotalFeePaidInfo($application_no,$filter['fee_year']);
                         $data['feePaidInfo'] = $this->fee->getFeePaidInfo($application_no,$filter['fee_year']);
+                        $data['fee_installment'] = $this->fee->checkInstalmentExists($application_no);
                         $first_puc_total_bal -= $paidFee;
                         //prev year fee
-                        if(trim($studentInfo->intake_year_id) == '2020'){
-                            $paidFee = $this->fee->getTotalFeePaidInfo2020($application_no);
-                            $data['feePaidInfo'] = $this->fee->getFeePaidInfo2020($application_no);
-                            $first_puc_total_bal -= $paidFee;
-                        }
+                        // if(trim($studentInfo->intake_year_id) == '2020'){
+                        //     $paidFee = $this->fee->getTotalFeePaidInfo2020($application_no);
+                        //     $data['feePaidInfo'] = $this->fee->getFeePaidInfo2020($application_no);
+                        //     $first_puc_total_bal -= $paidFee;
+                        // }
                         
                         $data['paid_first_puc'] = $paidFee;
-                        if($studentInfo->student_id == '21P1148'){
-                            $data['I_balance'] = $first_puc_total_bal;
-                            $data['first_puc_pending_amount'] = $data['previousBal'] = $first_puc_total_bal;
-                        }else{
+                   
                             $data['I_balance'] = 0;
                             $data['first_puc_pending_amount'] = $data['previousBal'] = 0;
-                        }
                 
                   
                     //I PUC PENDING END --------//
@@ -2801,16 +2807,22 @@ public function newAdm_AddFeePaymentInfo(){
                     $total_fee_amount -= $paidFee;
 
                     //prev year fee
-                    if(trim($studentInfo->intake_year_id) == '2020'){
-                        $paidFee = $this->fee->getTotalFeePaidInfo2021($application_no);
-                        $data['II_feePaidInfo'] = $this->fee->getFeePaidInfo2021($application_no);
-                        $total_fee_amount -= $paidFee;
+                    // if(trim($studentInfo->intake_year_id) == '2020'){
+                    //     $paidFee = $this->fee->getTotalFeePaidInfo2021($application_no);
+                    //     $data['II_feePaidInfo'] = $this->fee->getFeePaidInfo2021($application_no);
+                    //     $total_fee_amount -= $paidFee;
+                    // }
+                    $concession_amt = 0;
+                    $feeConcession = $this->fee->getStudentFeeConcession($application_no);
+                    if(!empty($feeConcession)){
+                        $concession_amt = $feeConcession->fee_amt;
                     }
-                   
-                    $data['second_puc_pending_amount'] = $data['pending_amount'] = $total_fee_amount;
+                    $data['second_puc_pending_amount'] = $data['pending_amount'] = $total_fee_amount-$concession_amt;
                     $data['paid_amount'] = $paidFee;
+                  
                     //get list of payment in II PUC
                     $data['balance'] = $total_fee_amount;
+                    $data['concession'] = $concession_amt;
                 }
                 // $data['balance'] = $total_fee_to_pay;
 

@@ -247,6 +247,15 @@ if ($error) {
                                                         </th>
                                                     </tr>
 
+                                                    <?php if($concession != 0){ ?>
+                                                        <tr class="bg-secondary text-white">
+                                                            <th class="text-left" scope="col">Concession Amt</th>
+                                                            <th class="text-left" scope="col">
+                                                                <?php echo number_format($concession,2); ?>
+                                                            </th>
+                                                        </tr>
+                                                        <?php } ?>
+
                                                             <tr class="bg-success text-white">
                                                         <th class="text-left" scope="col">Paid Amount</th>
                                                         <th class="text-left" scope="col">
@@ -260,6 +269,15 @@ if ($error) {
                                                             <?php echo number_format($pending_amount,2); ?>
                                                         </th>
                                                     </tr>
+
+                                                    <?php if(!empty($fee_installment)){ ?>
+                                                        <tr class="bg-secondary text-white">
+                                                            <th class="text-left" scope="col">Installment</th>
+                                                            <th class="text-left" scope="col">
+                                                                <?php echo number_format($fee_installment->amount,2); ?>
+                                                            </th>
+                                                        </tr>
+                                                        <?php } ?>
 
                                                     <?php if ($term_name == "II PUC") { ?>
                                                     <tr class="bg-danger text-white">

@@ -82,8 +82,8 @@
                                     <?php if(!empty($year)){ ?>
                                                     <option value="<?php echo $year; ?>" selected><b><?php echo $year; ?></b></option>
                                     <?php } ?>
-                                    <option value="2022">2022</option>
-                                    <option value="2021">2021</option>
+                                    <option value="2023">2023</option>
+                                    <option value="2024">2024</option>
                                 </select>
                                 <div class="form-group">
                                     <button class="btn btn-success" type="submit">Search</button>
@@ -237,8 +237,8 @@
                                 <div class="form-group mb-2">
                                     <label>Year<span class="text-danger">*</span></label>
                                     <select class="form-control selectpicker" name="year" id="year" required autocomplete="off">
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
                                     </select>
                                 </div>
                             </div>

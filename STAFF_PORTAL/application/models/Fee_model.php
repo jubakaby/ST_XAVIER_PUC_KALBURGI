@@ -140,7 +140,15 @@ class Fee_model extends CI_Model
         return $insert_id;
     }
 
-
+    public function getStudentFeeConcession($application_no){
+        $this->db->from('tbl_student_fee_concession as fee');
+        $this->db->where('fee.application_no', $application_no);
+        $this->db->where('fee.payment_status', 0);
+        $this->db->where('fee.approved_status', 1);
+        $this->db->where('fee.is_deleted', 0);
+        $query = $this->db->get();
+        return $query->row();
+    }
     
     public function updateConcession($feeInfo, $row_id) {
         $this->db->where('row_id', $row_id);
@@ -313,6 +321,15 @@ class Fee_model extends CI_Model
             $insert_id = $this->db->insert_id();
             $this->db->trans_complete();
             return $insert_id;
+        }
+
+        public function checkInstalmentExists($student_id){
+            $this->db->from('tbl_student_fee_installment_info as fee');
+            $this->db->where('fee.application_no', $student_id);
+            $this->db->where('fee.payment_status', 0);
+            $this->db->where('fee.is_deleted', 0);
+            $query = $this->db->get();
+            return $query->row();
         }
 
    public function getFeeInstallmentById($row_id) {

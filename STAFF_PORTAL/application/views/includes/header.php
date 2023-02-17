@@ -690,7 +690,7 @@
                         <li class="nav-item">
                             <a class="nav-link " href="<?php echo base_url(); ?>newFeePayNow">
                                 <i class="fas fa-money-bill-alt header_icons"></i>
-                                <span>2022 Pay Now</span>
+                                <span>Pay Now</span>
                             </a>
                         </li>
                         <!-- <li class="nav-item">
