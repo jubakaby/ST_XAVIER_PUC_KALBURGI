@@ -619,12 +619,12 @@ class students_model extends CI_Model
         $this->db->select('student.row_id, 
         student.student_name, 
         student.application_no,
-        academic.student_id,');
+        student.student_id,');
         $this->db->from('tbl_students_info as student'); 
-        $this->db->join('tbl_student_academic_info as academic', 'academic.application_no = student.application_no','left');
+        // $this->db->join('tbl_student_academic_info as academic', 'academic.application_no = student.application_no','left');
         // $this->db->where('academic.term_name', 'II PUC');
         $this->db->where('student.is_active', 1);
-        $this->db->where('academic.is_current', 1);
+        // $this->db->where('student.is_current', 1);
         $this->db->where('student.is_deleted', 0);
         $query = $this->db->get();
         return $query->result();

@@ -441,6 +441,8 @@ $route['feePayNow'] = "fee/feePayNow";
 $route['addFeePaymentInfo'] = "fee/addFeePaymentInfo";
 $route['getStudentFeePaymentInfo'] = "fee/getStudentFeePaymentInfo";
 $route['feePaymentReceiptPrint/(:any)'] = "fee/feePaymentReceiptPrint/$1";
+$route['viewAdmFeeConcession'] = "fee/viewAdmFeeConcession";
+$route['viewAdmFeeConcession/(:any)'] = "fee/viewAdmFeeConcession/$1";
 
 $route['feePaymentReceiptPrint_old/(:any)'] = "fee/feePaymentReceiptPrint_old/$1";
 

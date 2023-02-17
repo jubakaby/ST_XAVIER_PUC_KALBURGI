@@ -693,12 +693,12 @@
                                 <span>2022 Pay Now</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link " href="<?php echo base_url(); ?>feePayNow">
                                 <i class="fas fa-money-bill-alt header_icons"></i>
                                 <span>2020 Pay Now</span>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link " href="<?php echo base_url(); ?>getAllFeePaymentInfo">
                                 <i class="fas fa-money-bill-alt header_icons"></i>
@@ -711,6 +711,14 @@
                                 <span>Instalment</span>
                             </a>
                         </li>
+                        <?php if($role == ROLE_PRINCIPAL || $role == ROLE_PRIMARY_ADMINISTRATOR || $role == ROLE_ADMIN ){ ?>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="<?php echo base_url(); ?>viewAdmFeeConcession">
+                                        <i class="fas fa-rupee-sign"></i>
+                                        <span>Concession</span>
+                                    </a>
+                                </li>
+                                <?php } ?>
                     </ul>
                 </li>
                 <?php } ?>

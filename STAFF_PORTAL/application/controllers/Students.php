@@ -241,27 +241,28 @@ class Students extends BaseController
             $this->load->library('form_validation');
             $this->form_validation->set_rules('student_name','Student Name','trim|required');
             $this->form_validation->set_rules('dob','DOB','trim|required');
+            // $this->form_validation->set_rules('application_no','Application Number','trim|required');
             // $this->form_validation->set_rules('nationality','Nationality','trim|required');
             // $this->form_validation->set_rules('gender','Gender','trim|required');
             // $this->form_validation->set_rules('permanent_address','Permanent Address','trim|required');
             $row_id = $this->input->post('row_id');
             $application_no = $this->input->post('application_no');
-            $family_id = $this->input->post('family_id');
             if($this->form_validation->run() == FALSE) {
+                $this->session->set_flashdata('error', 'Student Update failed');
                 redirect('editStudent/'.$row_id);  
             } else {
-                // $image_path="";
-                // $config=['upload_path' => './upload/',
-                // 'allowed_types' => 'jpg|png|jpeg','max_size' => '2048','overwrite' => TRUE,'file_ext_tolower' => TRUE];
-                // $this->load->library('upload', $config);
-                // if($this->upload->do_upload())
-                // {
-                //     $post=$this->input->post();
-                //     $data=$this->upload->data();
-                //     $image_path=base_url("upload/".$data['raw_name'].$data['file_ext']);
-                //     $post['image_path']=$image_path;
-                //     $imgdata = file_get_contents($image_path);
-                // }
+                $image_path="";
+                $config=['upload_path' => './upload/imageupload',
+                'allowed_types' => 'jpg|png|jpeg','max_size' => '2048','overwrite' => TRUE,'file_ext_tolower' => TRUE];
+                $this->load->library('upload', $config);
+                if($this->upload->do_upload())
+                {
+                    $post=$this->input->post();
+                    $data=$this->upload->data();
+                    $image_path=base_url("upload/imageupload".$data['raw_name'].$data['file_ext']);
+                    $post['image_path']=$image_path;
+                    $imgdata = file_get_contents($image_path);
+                }
               
                 $student_name = ucwords(strtolower($this->security->xss_clean($this->input->post('student_name'))));
                 $gender = $this->security->xss_clean($this->input->post('gender'));
@@ -329,17 +330,22 @@ class Students extends BaseController
                     'mother_email' => $mother_email,
                     'updated_by'=>$this->staff_id, 
                     'updated_date_time'=>date('Y-m-d H:i:s'));
+
+                    if(!empty($image_path)){
+                        $studentInfo['photo_url'] = $image_path;
+    
+                    }
                 $result = $this->student->updateStudentInfo($studentInfo,$row_id);
 
-                // if(!empty($imgdata)){
-                //     $studentImage = array(
-                //         'document' => $imgdata,
-                //         'name' => 'Photo',
-                //         'is_photo' => 1,
-                //         'modified_by'=>$this->staff_id, 'last_modified_date'=>date('Y-m-d H:i:s'));
-                //     $result1 = $this->student->updateStudentImage($studentImage,$application_no);
+                if(!empty($imgdata)){
+                    $studentImage = array(
+                        'document' => $imgdata,
+                        'name' => 'Photo',
+                        'is_photo' => 1,
+                        'modified_by'=>$this->staff_id, 'last_modified_date'=>date('Y-m-d H:i:s'));
+                    $result1 = $this->student->updateStudentImage($studentImage,$application_no);
 
-                // }
+                }
                 
 
                 if($result > 0) {

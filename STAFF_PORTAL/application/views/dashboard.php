@@ -289,6 +289,17 @@ if ($warning) {
                             <div class="col-9 col-sm-9 ">
                                 <div class="autocomplete">
                                     <input value="<?php echo $student_id; ?>" id="student_id" type="text" name="student_id" class="form-control input-sm pull-right" placeholder="Type Student ID" required autocomplete="off">
+                                    <!-- <select class="form-control selectpicker" name="student_id" id="student_id"
+                                        data-live-search="true" required autocomplete="off">
+                                        <option value="">Enter Student</option>
+                                        <?php if(!empty($studentRecord)){
+                                            foreach($studentRecord as $std){  ?>
+                                        <option value="<?php echo $std->row_id; ?>">
+                                            <b><?php echo $std->student_name.' - '.$std->sat_number; ?></b>
+                                        </option>
+                                        <?php } } ?>
+                                    </select> -->
+                                
                                 </div>
                             </div>
                             <div class="col-3 col-sm-3 pl-0">
@@ -321,10 +332,10 @@ if ($warning) {
                             <hr class="my-1">
                             <div class="table-responsive">
                                 <table class="table table-bordered table_quick_info">
-                                    <tr class="table-primary">
+                                    <!-- <tr class="table-primary">
                                         <td>Mobile Number</td>
                                         <th><?php echo $studentsRecords->mobile; ?></th>
-                                    </tr>
+                                    </tr> -->
                                     <tr class="table-success">
                                         <td>Father's Name</td>
                                         <th><?php echo $studentsRecords->father_name; ?></th>

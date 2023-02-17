@@ -202,7 +202,7 @@
                     <form role="form" id="addConcessionInfo" action="<?php echo base_url() ?>addConcession"
                         method="post" role="form">
                         <div class="row form-contents">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group mb-2">
                                     <label>Select Student <span class="text-danger">*</span></label>
                                     <select class="form-control selectpicker" data-live-search="true"
@@ -217,11 +217,21 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="form-group mb-2">
+                                <div class="form-group">
                                     <label>Enter Concession Amount <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control " id="fee_amount" name="fee_amount"
                                         placeholder="Enter Concession Amount" onkeypress="return isNumberKey(event)"
                                         required autocomplete="off">
+                                </div>
+                               
+                            </div>
+                            <div class="col-lg-6">
+                            <div class="form-group mb-2">
+                            <label>Year <span class="text-danger">*</span></label>
+                                    <select class="form-control selectpicker" data-live-search="true" name="year" >
+                                            <option value="2023">2023</option>
+                                            <option value="2024">2024</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-12">
