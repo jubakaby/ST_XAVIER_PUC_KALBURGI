@@ -577,6 +577,53 @@
                         </li>
                     </ul>
                     <?php } ?>
+                    <?php if($role == ROLE_LIBRARY || $role == ROLE_ADMIN || $role == ROLE_PRIMARY_ADMINISTRATOR || $role == ROLE_OFFICE ||  $role == ROLE_PRINCIPAL) { ?>
+                <li class="nav-item">
+                    <a href="#library_items" data-toggle="collapse" aria-expanded="false" class="nav-link  dropdown-toggle">
+                        <i class="material-icons">book</i>
+                        <span>Library</span>
+                    </a>
+                    <ul class="collapse list-unstyled ml-3" id="library_items">
+                        <li class="nav-item">
+                                <a class="nav-link " href="<?php echo base_url(); ?>viewLibraryDashboard">
+                                    <i class="fas fa-tachometer-alt header_icons"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="<?php echo base_url(); ?>libraryManagementSystem">
+                                <i class="fa fa-book"></i>
+                                <span>Manage Library</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo base_url(); ?>viewIssueBook">
+                                <i class="fa fa-book"></i>
+                                <span>Issue Books</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo base_url(); ?>viewIssuedBooks">
+                                <i class="fa fa-book"></i>
+                                <span>Issued Books</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo base_url(); ?>viewLibrarySettings">
+                                <i class="material-icons">settings</i>
+                                <span>Library Settings</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo base_url(); ?>viewBarCodeGenerater">
+                                <i class="fa fa-barcode"></i>
+                                <span>Barcode generater</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <?php } ?>
                     <?php if ($role == ROLE_ADMIN || $role == ROLE_PRINCIPAL || $role == ROLE_PRIMARY_ADMINISTRATOR || $role == ROLE_OFFICE) { ?>
                 <li class="nav-item">
                     <a class="nav-link " href="<?php echo base_url(); ?>suggestionListing">

@@ -892,3 +892,47 @@ $route['generateMidTermExamReportCard'] = "students/generateMidTermExamReportCar
 // print marks card preparatory
 $route['generatePreparatoryExamReportCard/(:any)'] = "students/generatePreparatoryExamReportCard/$1";
 $route['generatePreparatoryExamReportCard'] = "students/generatePreparatoryExamReportCard";
+
+
+////Library mngmt
+$route['libraryManagementSystem'] = "libraryManagement/libraryManagementSystem";
+$route['addLibraryInfo'] = "libraryManagement/addLibraryInfo";
+$route['addLibraryBookToDB'] = "libraryManagement/addLibraryBookToDB";
+$route['deleteLibraryDetails'] = "libraryManagement/deleteLibraryDetails";
+$route['viewLibrarySettings'] = "libraryManagement/viewLibrarySettings";
+$route['editLibrary/(:any)'] = "libraryManagement/editLibrary/$1";
+$route['updateLibrary'] = "libraryManagement/updateLibrary";
+
+//library settings
+$route['addBookCategory'] = "libraryManagement/addBookCategory";
+$route['deleteBookCategory'] = "libraryManagement/deleteBookCategory";
+$route['addBookAuthor'] = "libraryManagement/addBookAuthor";
+$route['deleteBookauthor'] = "libraryManagement/deleteBookauthor";
+$route['addBookPublisher'] = "libraryManagement/addBookPublisher";
+$route['deleteBookPublisher'] = "libraryManagement/deleteBookPublisher";
+$route['addBookShelf'] = "libraryManagement/addBookShelf";
+$route['deleteBookShelf'] = "libraryManagement/deleteBookShelf";
+$route['addBookFine'] = "libraryManagement/addBookFine";
+$route['deleteBookFine'] = "libraryManagement/deleteBookFine";
+
+//Issue Book
+$route['viewIssueBook'] = "libraryManagement/viewIssueBook";
+$route['getIsbnData'] = "libraryManagement/getIsbnData";
+$route['addLibraryIssueInfo'] = "libraryManagement/addLibraryIssueInfo";
+
+//Issued Books
+$route['viewIssuedBooks'] = "libraryManagement/viewIssuedBooks";
+$route['editIssuedInfo/(:any)'] = "libraryManagement/editIssuedInfo/$1";
+$route['updateIssuedInfo'] = "libraryManagement/updateIssuedInfo";
+
+//Library dashborad
+$route['viewLibraryDashboard'] = "libraryManagement/viewLibraryDashboard";
+
+//barcode
+$route['viewBarCodeGenerater'] = "libraryManagement/viewBarCodeGenerater";
+$route['generateBarcode'] = "libraryManagement/generateBarcode";
+$route['deleteBarcode'] = "libraryManagement/deleteBarcode";
+
+//library access code
+$route['getAccessCode'] = "libraryManagement/getAccessCode";
+$route['getAccessData'] = "libraryManagement/getAccessData";
