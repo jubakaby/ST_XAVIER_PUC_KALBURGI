@@ -121,6 +121,7 @@ if ($error) {
                                                                 <div class="text-center">
                                                                     <label for="fname">Profile Image</label>
                                                                 </div>
+                                                                
                                                                 <?php 
                                                                 $profileImg = $staffInfo->photo_url;
                                                                     if(!empty($profileImg)){ ?>
@@ -130,7 +131,6 @@ if ($error) {
                                                                 <img src="<?php echo base_url(); ?>assets/images/user.png" class="avatar rounded-circle img-thumbnail"
                                                                     width="130" height="130" id="uploadedImage" alt="Profile default">
                                                                 <?php } ?>
-                                                                <div class="profileImg">
                                                                     <div class="file btn btn-sm btn-primary">
                                                                         Change
                                                                         <input type="file" class="form-control-sm" id="vImg" name="userfile">
@@ -204,7 +204,7 @@ if ($error) {
                                                                 <input type="text" class="form-control required digits"
                                                                     id="mobile"
                                                                     value="<?php echo $staffInfo->mobile; ?>"
-                                                                    name="mobile" maxlength="10"
+                                                                    name="mobile" maxlength="10" minlength="10"
                                                                     placeholder="Enter Contact Number"
                                                                     onkeypress="return isNumberKey(event)"
                                                                     autocomplete="off">
@@ -587,10 +587,10 @@ if ($error) {
                                                                 <tr>
                                                                     <th><i class="fas fa-mobile-alt"></i> MOB.<span class="float-right">:</span></th>
                                                                     <td>
-                                                                        <?php if(empty($staffInfo->mobile_one)){ 
+                                                                        <?php if(empty($staffInfo->mobile)){ 
                                                                             echo '<span class="text-danger">Not Updated</span>';
                                                                         } else{ 
-                                                                            echo $staffInfo->mobile_one;
+                                                                            echo $staffInfo->mobile;
                                                                         } ?>
                                                                     </td>
                                                                 </tr>

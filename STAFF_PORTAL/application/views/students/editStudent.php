@@ -79,33 +79,19 @@ if ($error) {
                                                         <tr>
                                                             <td style="background:white" width="100" rowspan="7" class="p-0">
                                                                 <div class="profile-img">
-                                                                    <?php $std_id = substr($studentInfo->student_id,0,2);
-                                                                    if($std_id == '20'){
-                                                                        $profile_image_url = base_url().'assets/images/PHOTOS_20_21_ALL/'.strtoupper($studentInfo->student_id).'.jpg';
-                                                                    }if($std_id == '21'){
-                                                                        
-                                                                        $profile_image_url = base_url().'assets/images/PHOTOS_21_22_ALL/'.strtoupper($studentInfo->student_id).'.jpg';
-                                                                    // }else{
-                                                                    //     $profile_image_url = base_url().'assets/dist/img/user.png';
-                                                                    } 
-
-                                                                    if($std_id == '22'){
-                                                                        $profile_image_url = base_url().'assets/images/PHOTOS_22_23_ALL/'.strtoupper($studentInfo->student_id).'.JPG';
-                                                                    }?>
-                                                                    <img src="<?php echo $profile_image_url; ?>" class="img-thumbnail"
-                                                                     id="uploadedImage" name="userfile" alt="Profile default">
-                                                                  
-                                                                    <!-- <?php if(!empty($studentImage->document)){ ?>
-                                                                        <img src="<?php echo 'data:' . ';base64,' . base64_encode($studentImage->document); ?>" class="img-thumbnail"
-                                                                         alt="Profile Image" id="uploadedImage" name="userfile">
-                                                                        <?php } else { ?>
-                                                                        <img src="<?php echo base_url(); ?>assets/dist/img/user.png" class="img-thumbnail"
-                                                                         id="uploadedImage" name="userfile" alt="Profile default">
-                                                                        <?php } ?> -->
-                                                                    <!-- <div class="file btn btn-sm btn-primary">
+                                                                <?php
+                                                        $profileImg = $studentInfo->photo_url;
+                                                            if(!empty($profileImg)){ ?>
+                                                        <img src="<?php echo $profileImg; ?>" class="img-thumbnail"
+                                                         alt="Profile Image" id="uploadedImage" name="userfile">
+                                                        <?php } else { ?>
+                                                        <img src="<?php echo base_url(); ?>assets/dist/img/user.png" class="img-thumbnail"
+                                                         id="uploadedImage" name="userfile" alt="Profile default">
+                                                        <?php } ?>
+                                                                    <div class="file btn btn-sm btn-primary">
                                                                         Change Photo
                                                                         <input type="file" class="form-control-sm" id="vImg" name="userfile">
-                                                                    </div> -->
+                                                                    </div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -143,7 +129,8 @@ if ($error) {
                                                                         <option value="<?php echo $studentInfo->gender; ?>" >
                                                                             Selected: <?php echo $studentInfo->gender; ?>
                                                                         </option>
-                                                                        <option value="Male">Male</option>
+                                                                        <option value="MALE">MALE</option>
+                                                                        <option value="FEMALE">FEMALE</option>
                                                                     </select>
                                                                 </div>
                                                             </th>
@@ -245,8 +232,17 @@ if ($error) {
                                                                     </div>
                                                                 </div>
                                                             </th>
-                                                            <th class="tbl-head"></th>
-                                                            <th></th>
+                                                            <th class="tbl-head">Mobile</th>
+                                                            <th>
+                                                            <div class="form-group mb-0">
+                                                                    <div class="form-group mb-0">
+                                                                        <input value="<?php echo $studentInfo->mobile; ?>" type="text" 
+                                                                        class="form-control required" placeholder="Mobile" 
+                                                                        id="mobile" name="mobile" maxlength="10" minlength="10" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </th>
+                                                          
                                                         </tr>
                                                     </table>
                                                 </div>

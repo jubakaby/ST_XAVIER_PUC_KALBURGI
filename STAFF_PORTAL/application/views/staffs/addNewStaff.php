@@ -134,7 +134,7 @@ if ($error) {
                                                 <input type="text" class="form-control required digits"
                                                     id="mobile"
                                                     value="<?php echo set_value('mobile'); ?>"
-                                                    name="mobile" maxlength="10"
+                                                    name="mobile" maxlength="10" minlength="10"
                                                     placeholder="Enter Contact Number"
                                                     onkeypress="return isNumberKey(event)" autocomplete="off">
                                             </div>

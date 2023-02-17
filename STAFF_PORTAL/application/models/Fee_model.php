@@ -4,11 +4,11 @@ class Fee_model extends CI_Model
 
     
     public function getFeeConcessionInfo($filter='') {
-        $this->db->select('academic.student_id,fee.row_id,fee.fee_amt,fee.approved_status,fee.date,fee.description,fee.application_no,
+        $this->db->select('std.student_id,fee.row_id,fee.fee_amt,fee.approved_status,fee.date,fee.description,fee.application_no,
         fee.payment_status,std.student_name');
         $this->db->from('tbl_student_fee_concession as fee');
         $this->db->join('tbl_students_info as std','std.application_no = fee.application_no'); 
-        $this->db->join('tbl_student_academic_info as academic', 'academic.application_no = std.application_no','left');
+       
         
         if(!empty($filter['by_name'])) {
             $likeCriteria = "(std.student_name LIKE '%".$filter['by_name']."%')";
@@ -18,7 +18,7 @@ class Fee_model extends CI_Model
             $this->db->where('fee.fee_amt', $filter['amount']);
         } 
         if(!empty($filter['student_id'])){
-            $this->db->where('academic.student_id', $filter['student_id']);
+            $this->db->where('std.student_id', $filter['student_id']);
         } 
         if(!empty($filter['by_date'])){
             $likeCriteria = "(fee.date LIKE '%".$filter['by_date']."%')";
@@ -32,11 +32,11 @@ class Fee_model extends CI_Model
         return $query->result();
     }
     public function getFeeConcessionCount($filter='') {
-        $this->db->select('academic.student_id,fee.row_id,fee.fee_amt,fee.approved_status,fee.date,fee.description,fee.application_no,
-        fee.payment_status,std.student_name');
+        $this->db->select('std.student_id,fee.row_id,fee.fee_amt,fee.approved_status,fee.date,
+        fee.description,fee.application_no,fee.payment_status,std.student_name');
         $this->db->from('tbl_student_fee_concession as fee');
         $this->db->join('tbl_students_info as std','std.application_no = fee.application_no'); 
-        $this->db->join('tbl_student_academic_info as academic', 'academic.application_no = std.application_no','left');
+       
         
         if(!empty($filter['by_name'])) {
             $likeCriteria = "(std.student_name LIKE '%".$filter['by_name']."%')";
@@ -46,7 +46,7 @@ class Fee_model extends CI_Model
             $this->db->where('fee.fee_amt', $filter['amount']);
         } 
          if(!empty($filter['student_id'])){
-            $this->db->where('academic.student_id', $filter['student_id']);
+            $this->db->where('std.student_id', $filter['student_id']);
         } 
         if(!empty($filter['by_date'])){
             $likeCriteria = "(fee.date LIKE '%".$filter['by_date']."%')";

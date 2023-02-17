@@ -79,28 +79,20 @@
                                                     <tr>
                                                         <td style="background:white" width="160" rowspan="7" class="p-0">
                                                             <div class="profile-img">
-                                                            
-                                                            <?php $std_id = substr($studentInfo->student_id,0,2);
-                                                                if($std_id == '20'){
-                                                                    $profile_image_url = base_url().'assets/images/PHOTOS_20_21_ALL/'.strtoupper($studentInfo->student_id).'.jpg';
-                                                                }if($std_id == '21'){
-                                                                    
-                                                                    $profile_image_url = base_url().'assets/images/PHOTOS_21_22_ALL/'.strtoupper($studentInfo->student_id).'.jpg';
-                                                                // }else{
-                                                                //     $profile_image_url = base_url().'assets/dist/img/user.png';
-                                                                } ?>
-                                                                  
-                                                                    <!-- <img src="<?php echo 'data:' . ';base64,' . base64_encode($studentImage->document); ?>" class="avatar img-thumbnail"
-                                                                    alt="Profile Image" id="uploadedImage"/> -->
-                                                                <?php //} else { ?>
-                                                                    <img src="<?php echo $profile_image_url; ?>" class="avatar img-thumbnail"
-                                                                    id="uploadedImage" alt="Profile default">
-                                                                <?php //} ?>
+                                                        
+                                                            <?php  ;
+                                                               $profileImg = $studentInfo->photo_url;
+                                                                if(!empty($profileImg)){ ?>
+                                                                  <img src="<?php echo $profileImg; ?>" class="avatar img-thumbnail"
+                                                                 alt="Profile Image" id="uploadedImage"/>
+                                                               <?php } else { ?>
+                                                                <img src="<?php echo base_url(); ?>assets/dist/img/user.png" class="avatar img-thumbnail"
+                                                               id="uploadedImage" alt="Profile default">
+                                                              <?php } ?>
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <th class="tbl-head" width="80">Application No.</th>
+                                                    <th class="tbl-head" width="80">Application No.</th>
                                                         <th class="tbl-head-content" width="120">
                                                             <?php echo $studentInfo->application_no; ?>
                                                         </th>
@@ -144,31 +136,21 @@
                                                         </th>
                                                     </tr>
                                                     <tr>
+                                                    <th class="tbl-head">Sub Caste</th>
+                                                        <th class="tbl-head-content">
+                                                            <?php echo $studentInfo->sub_caste; ?>
+                                                        </th>
                                                         <th class="tbl-head">Mother Tongue</th>
                                                         <th class="tbl-head-content text-uppercase">
                                                             <?php echo $studentInfo->mother_tongue; ?>
                                                         </th>
-                                                        <th class="tbl-head">Mobile One</th>
+                                                      
+                                                        <th class="tbl-head">Mobile</th>
                                                         <th class="tbl-head-content">
-                                                            <?php echo $studentInfo->mobile_one; ?>
-                                                        </th>
-                                                        <th class="tbl-head">Mobile Two</th>
-                                                        <th class="tbl-head-content">
-                                                            <?php echo $studentInfo->mobile_two; ?>
+                                                            <?php echo $studentInfo->mobile; ?>
                                                         </th>
                                                     </tr>
-                                                    <tr>
-                                                        <th class="tbl-head">Primary Contact</th>
-                                                        <th class="tbl-head-content text-uppercase">
-                                                            <?php echo $studentInfo->primary_mobile; ?>
-                                                        </th>
-                                                        <th class="tbl-head"></th>
-                                                        <th class="tbl-head-content">
-                                                        </th>
-                                                        <th class="tbl-head"></th>
-                                                        <th class="tbl-head-content">
-                                                        </th>
-                                                    </tr>
+                                                  
                                                 </table>
                                             </div>
                                             <div class="table-responsive">
@@ -246,24 +228,38 @@
                                         <div class="tab-pane fade" id="academic" role="tabpanel" aria-labelledby="academic-tab">
                                             <table class="table table-bordered">
                                                 <tr>
+                                                <th class="tbl-head" width="160">Application Number</th>
+                                                    <th class="tbl-head-content" width="140"><?php echo $studentInfo->application_no; ?></th>
+                                                    <th class="tbl-head" width="160">PU Board No.</th>
+                                                    <th class="tbl-head-content" width="140"><?php echo $studentInfo->pu_board_number; ?></th>
                                                     <th class="tbl-head" width="160">Student ID</th>
                                                     <th class="tbl-head-content" width="140"><?php echo $studentInfo->student_id; ?></th>
-                                                    <th class="tbl-head">SAT Number</th>
-                                                    <th class="tbl-head-content"><?php echo $studentInfo->sat_number; ?></th>
-                                                    <th class="tbl-head">Term</th>
-                                                    <th class="tbl-head-content"><?php echo strtoupper($studentInfo->term_name); ?></th>
                                                 </tr>
                                                 <tr>
                                                     <th class="tbl-head">Elective</th>
                                                     <th class="tbl-head-content"><?php echo $studentInfo->elective_sub; ?></th>
+                                                    <th class="tbl-head">Term</th>
+                                                    <th class="tbl-head-content"><?php echo strtoupper($studentInfo->term_name); ?></th>
                                                     <th class="tbl-head">Stream</th>
                                                     <th class="tbl-head-content"><?php echo strtoupper($studentInfo->stream_name); ?></th>
-                                                    <th class="tbl-head">Section</th>
+                                                   
+                                                <tr>
+                                                <th class="tbl-head">Section</th>
                                                     <th class="tbl-head-content"><?php echo strtoupper($studentInfo->section_name); ?></th>
+                                                    <th class="tbl-head">Hall Ticket No.</th>
+                                                    <th class="tbl-head-content"><?php echo strtoupper($studentInfo->hall_ticket_no); ?></th>
+                                                    <th class="tbl-head">Date of Admmission</th>
+                                                    <th class="tbl-head-content"><?php echo date('d-m-Y',strtotime($studentInfo->date_of_admission)); ?></th>
                                                 </tr>
+                                                <tr>
+                                                <th class="tbl-head">SAT Number</th>
+                                                    <th class="tbl-head-content"><?php echo $studentInfo->sat_number; ?></th>
+                                                    <th class="tbl-head">Date of Join</th>
+                                                    <th class="tbl-head-content"><?php echo date('d-m-Y',strtotime($studentInfo->doj)); ?></th>
+
+                                                    </tr>
                                             </table>
                                         </div>
-
                                         <div class="tab-pane fade" id="first_unit_test" role="tabpanel" aria-labelledby="first_unit_test-tab">
                                             <div class=" table-responsive">
                                                 <table class="table table-bordered">

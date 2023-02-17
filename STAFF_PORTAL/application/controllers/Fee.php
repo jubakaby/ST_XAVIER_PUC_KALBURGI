@@ -107,19 +107,22 @@ class Fee extends BaseController
             $this->form_validation->set_rules('application_no','Student ID','trim|required');
             $this->form_validation->set_rules('fee_amount','Amount','trim|required|numeric');
 
+            $data['studentInfo'] = $this->student->getStudentInfoForConcession();
+
             if($this->form_validation->run() == FALSE) {
                 $this->viewFeeConcession();
             } else {
                 $application_no = $this->security->xss_clean($this->input->post('application_no'));
                 $fee_amount = $this->security->xss_clean($this->input->post('fee_amount'));
                 $description = $this->security->xss_clean($this->input->post('description'));
-
+                $year = $this->security->xss_clean($this->input->post('year'));
                     $feeInfo = array(
                         'application_no'=>$application_no,
                         'fee_amt'=>$fee_amount,
                         'description'=>$description,
+                        'year'=>$year,
                         'date'=>date('Y-m-d H:i:s'),
-                        'approved_status'=>1,
+                        // 'approved_status'=>1,
                         'created_by'=>$this->staff_id,
                         'created_date_time'=>date('Y-m-d H:i:s'));
                     $result = $this->fee->addConcession($feeInfo);
@@ -1146,7 +1149,55 @@ class Fee extends BaseController
     }
 
 
+    public function viewAdmFeeConcession(){
+        if ($this->isAdmin() == true ) {
+            $this->loadThis();
+        } else {  
+            $filter = array();
+            $by_name = $this->security->xss_clean($this->input->post('by_name'));
+            $amount = $this->security->xss_clean($this->input->post('amount'));
+            $by_date = $this->security->xss_clean($this->input->post('by_date'));
+            $application_no = $this->security->xss_clean($this->input->post('application_no'));
+            $term_name = $this->security->xss_clean($this->input->post('term_name'));
+            $year = $this->security->xss_clean($this->input->post('year'));
 
+            $data['by_name'] = $by_name;
+            $data['amount'] = $amount;
+            $data['application_no'] = $application_no;
+            $data['year'] = $year;
+            if(empty($term_name)){
+                $data['term_name'] = "II PUC";
+                $filter['term_name'] = "II PUC";
+            }else{
+                $data['term_name'] = $term_name;
+                $filter['term_name'] = $term_name;
+            }
+            $filter['application_no'] = $application_no;
+            $filter['by_name'] = $by_name;
+            $filter['amount'] = $amount;
+            $filter['year'] = $year;
+
+            if(!empty($by_date)){
+                $filter['by_date'] = date('Y-m-d',strtotime($by_date));
+                $data['by_date'] = date('d-m-Y',strtotime($by_date));
+            }else{
+                $data['by_date'] = '';
+            }
+            
+            $this->load->library('pagination');
+            $count = $this->fee->getFeeConcessionCount($filter);
+            $returns = $this->paginationCompress("viewAdmFeeConcession/", $count, 100);
+            $data['totalCount'] = $count;
+            $filter['page'] = $returns["page"];
+            $filter['segment'] = $returns["segment"];
+            $data['concessionInfo'] = $this->fee->getFeeConcessionInfo($filter);
+            $data['studentInfo'] = $this->student->getStudentInfoForConcession();
+            // $data['newAdmStdInfo'] = $this->admission->getAllAdmittedStudentInfo();
+            // $data['reAdmStdInfo'] = $this->student->getAll_II_PUC_StudentsInfo();
+            $this->global['pageTitle'] = ''.TAB_TITLE.' : New Admission Fee Concession 2021';
+            $this->loadViews("feeConcession/feeConcessionNewAdmission", $this->global, $data, null);
+        }
+    }
 
     
     function getAllFeePaymentInfo()

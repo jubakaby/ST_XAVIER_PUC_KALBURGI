@@ -193,11 +193,11 @@
                 <!-- Modal body -->
                 <div class="modal-body p-2">
                     <?php $this->load->helper("form"); ?>
-                    <form role="form" id="addConcessionInfo" action="<?php echo base_url() ?>addNewAdmFeeConcession"
+                    <form role="form" id="addConcessionInfo" action="<?php echo base_url() ?>addConcession"
                         method="post" role="form">
                         <div class="row form-contents">
-                            <div class="col-lg-6">
-                            <div class="form-group mb-2">
+                            <div class="col-lg-12">
+                               <div class="form-group mb-2">
                                     <select class="form-control selectpicker" data-live-search="true"
                                         name="application_no" id="student_row_id" required autocomplete="off">
                                         <option value="">Select Student</option>
@@ -215,7 +215,14 @@
                                         placeholder="Enter Concession Amount" onkeypress="return isNumberKey(event)"
                                         required autocomplete="off">
                                 </div>
+
+                                <div class="form-group mb-0">
+                                    <input type="text" class="form-control " id="year" name="year"
+                                        placeholder="Concession year" onkeypress="return isNumberKey(event)"
+                                        required autocomplete="off">
+                                </div>
                             </div>
+
                             <div class="col-12">
                                 <div class="form-group mb-0">
                                     <textarea type="text" class="form-control" id="description" name="description"

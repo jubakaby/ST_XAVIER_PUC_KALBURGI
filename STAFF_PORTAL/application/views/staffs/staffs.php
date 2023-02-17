@@ -125,7 +125,7 @@
                                     <th>Department</th>
                                     <th>Role</th>
                                     <th>Mobile</th>
-                                    <th>Email</th>
+                                    <th>Action</th>
                                 </tr>
                             </tfoot>
                         </table>

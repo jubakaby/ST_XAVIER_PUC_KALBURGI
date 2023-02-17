@@ -194,14 +194,14 @@ if(empty($dob) || $date_of_birth == '0000-00-00'){
                                                         echo date('d-m-Y',strtotime($staffInfo->doj));
                                                     } ?></td>
                                                 </tr>
-                                                <tr>
+                                                <!-- <tr>
                                                     <th>Blood Group<span class="float-right">:</span> </th>
                                                     <td><?php  if(empty($staffInfo->blood_group)){
                                                         echo '<span class="text-danger">Not Updated</span>';
                                                     } else{
                                                         echo $staffInfo->blood_group;
                                                     } ?></td>
-                                                </tr>
+                                                </tr> -->
                                                 <tr>
                                                     <th>Address<span class="float-right">:</span></th>
                                                     <td><?php  if(empty($staffInfo->address)){
@@ -210,14 +210,14 @@ if(empty($dob) || $date_of_birth == '0000-00-00'){
                                                         echo $staffInfo->address;
                                                     } ?></td>
                                                 </tr>
-                                                <tr>
+                                                <!-- <tr>
                                                     <th>Mobile Two<span class="float-right">:</span></th>
                                                     <td><?php  if(empty($staffInfo->mobile_two)){
                                                         echo '<span class="text-danger">Not Updated</span>';
                                                     } else{
                                                         echo $staffInfo->mobile_two;
                                                     } ?></td>
-                                                </tr>
+                                                </tr> -->
                                                 <tr>
                                                     <th>Aadhar No.<span class="float-right">:</span></th>
                                                     <td><?php  if(empty($staffInfo->aadhar_no)){
