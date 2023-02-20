@@ -115,7 +115,7 @@ if ($error) {
                                                 <option value="<?php echo $admission_year; ?>" selected><b>Selected: <?php echo $admission_year; ?></b></option>
                                             <?php } ?>
                                             <option value="<?php echo CURRENT_YEAR?>"><?php echo CURRENT_YEAR?></option>
-                                            <option value="2021">2021</option>
+                                            <!-- <option value="2021">2021</option> -->
                                             
                                         </select>
                                         <div class="input-group-append">
@@ -366,11 +366,11 @@ if ($error) {
                 <form action="" method="POST" id="searchList">
                     <div class="text-center" id="alertMsg"></div>
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                     <label style="font-size: 18px;">Total Students Selected: <label id="countStudents"></label></label>
                         </div>
                     <!-- <hr> -->
-                    <div class="col-lg-6">
+                    <!-- <div class="col-lg-6">
                     <label style="font-size: 18px;" id="alertMsg">Select List</label>
 
                          <select class="form-control input-sm" id="shortlist_number" name="shortlist_number" autocomplete="off">    
@@ -380,7 +380,7 @@ if ($error) {
                              <option value="3" >III</option>
                             <option value="4" >IV</option>
                         </select>
-                    </div>
+                    </div> -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger font-weight-bold" data-dismiss="modal">Close</button>
@@ -439,17 +439,15 @@ jQuery(document).ready(function() {
     });
 
     $('#addStudentShortlisted').click(function() {
-        var online_interview_date = $("#online_interview_date").val();
-        var interview_link = $("#interview_link").val();
-        var any_comments = $("#any_comments").val();
-        var shortlist_number = $("#shortlist_number").val();
+        // var online_interview_date = $("#online_interview_date").val();
+        // var interview_link = $("#interview_link").val();
+        // var any_comments = $("#any_comments").val();
+        // var shortlist_number = $("#shortlist_number").val();
 
         // var contenteditable = document.querySelector('[contenteditable]'),
         // content = contenteditable.textContent;
         var students = [];
-        if(shortlist_number ==''){
-            alert('please select Shortlist Number');
-        }else{
+       
 
         $('#alertMsg').html('<span>' + loader + '</span>');
         //$('#shortListModelView').modal('show');
@@ -461,10 +459,10 @@ jQuery(document).ready(function() {
             type: 'POST',
             data: {
                 students_appliction_number: JSON.stringify(students),
-                online_interview_date: online_interview_date,
-                interview_link: interview_link,
-                any_comments: any_comments,
-                shortlist_number: shortlist_number,
+                // online_interview_date: online_interview_date,
+                // interview_link: interview_link,
+                // any_comments: any_comments,
+                // shortlist_number: shortlist_number,
             },
             success: function(data) {
                 if (data > 0) {
@@ -489,7 +487,7 @@ jQuery(document).ready(function() {
                 $('#alertMsg').html('<span>' + loader + '</span>');
             }
         });
-    }
+    
 
     });
 

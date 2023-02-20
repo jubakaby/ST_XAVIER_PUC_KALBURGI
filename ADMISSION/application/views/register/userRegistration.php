@@ -30,7 +30,7 @@
     </head>
     <body class="login-page">
       <div class="loader">
-        <img id="loader_img" src="<?php echo base_url(); ?><?php echo LOADER_IMG; ?>" class="img-fluid" alt="loader">
+        <!-- <img id="loader_img" src="<?php echo base_url(); ?><?php echo LOADER_IMG; ?>" class="img-fluid" alt="loader"> -->
       </div>
       <div class="row margin_left_right_null">
         <div class="card mx-auto registration_card">

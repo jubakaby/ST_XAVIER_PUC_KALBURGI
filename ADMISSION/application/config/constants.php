@@ -93,12 +93,12 @@ define('ROLE_EMPLOYEE',                         '3');
 
 define('SEGMENT',								2);
 
-define('TITLE','St. Joseph\'s Pre-University College');
-define('SUB_TITLE','SJPUC');
-define('INSTITUTION_LOGO','assets/dist/img/logoSJPUC.png');
-define('ADMISSION_YEAR', '2022');
+define('TITLE','ST. XAVIER\'S PRE–UNIVERSITY COLLEGE, KALABURAGI');
+define('SUB_TITLE','STXPUC');
+define('INSTITUTION_LOGO','assets/dist/img/logo_stxpuc.jpg');
+define('ADMISSION_YEAR', '2023');
 define('CARD_TITLE','Admission Registration - '.ADMISSION_YEAR);
-define('TAB_TITLE','Schoolphins-SJPUC');
+define('TAB_TITLE','Schoolphins-STXPUC');
 define('LOADER_IMG','assets/dist/img/load.gif');
 
 
@@ -106,7 +106,7 @@ define('LOADER_IMG','assets/dist/img/load.gif');
 
 define('EMAIL_FROM',                            'info@schoolphins.com');		// e.g. email@example.com
 define('EMAIL_BCC',                            	'');		// e.g. email@example.com
-define('FROM_NAME',                             'SJPUC Schoolphins');	// Your system name
+define('FROM_NAME',                             'STXPUC Schoolphins');	// Your system name
 define('EMAIL_PASS',                            'Your email password');	// Your email password
 define('PROTOCOL',                             	'smtp');				// mail, sendmail, smtp
 define('SMTP_HOST',                             'Your smtp host');		// your smtp host e.g. smtp.gmail.com

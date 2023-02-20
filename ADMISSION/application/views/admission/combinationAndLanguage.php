@@ -401,7 +401,7 @@ if(!empty($documentInfo)){
             <div class="card-footer card_head_dashboard p-2">
                 <div class="row">
                     <div class="col-6 text-left">
-                        <a href="<?php echo base_url(); ?>viewSchoolDetail" class="mdc-button mdc-button--raised btn_primary"><i class="fas fa-angle-double-left"></i> Previous</a>           
+                        <a href="<?php echo base_url(); ?>viewSchoolDetail" id="previousloader" class="mdc-button mdc-button--raised btn_primary"><i class="fas fa-angle-double-left"></i> Previous</a>           
                     </div>
                     <div class="col-6 text-right">
                         <button class="mdc-button mdc-button--raised text-right btn_success" type="submit" id="NextBtn">

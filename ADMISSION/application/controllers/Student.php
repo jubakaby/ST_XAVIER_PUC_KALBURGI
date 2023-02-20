@@ -1157,13 +1157,31 @@ class Student extends BaseController
                     //     $applicationNumber = '22'.sprintf('%04d', $isApplied->row_id);
                     // }
 
+
+                    $existsApplicationStatus = $this->student_model->checkStudentAdmissionStatus($this->student_row_id);
+                    if(empty($existsApplicationStatus)){
+                        $isExistsApplicationNumber = $this->student_model->getPreviousStudentApplicationInfo();
+                        if(!empty($isExistsApplicationNumber)){
+                            $appNo = substr($isExistsApplicationNumber->application_number,2);
+
+                             $appliNo = $appNo + 1;
+                            $applicationNumber = '23'.sprintf('%04d', $appliNo);
+                        }else {
+                               $applicationNumber = '23'.sprintf('%04d', 1);
+
+                               }
+                            }else{
+                                $applicationNumber = $existsApplicationStatus->application_number;
+                            }
+
+
                     $isExists = $this->student_model->checkStudentAdmissionStatus($this->student_row_id);
                     if(!empty($isExists)){
 
                
                 $applicationStatus = array(
-                    'adm_year' => 2022,
-                    // 'application_number'=> $applicationNumber,
+                    'adm_year' => 2023,
+                    'application_number'=> $applicationNumber,
                     'registered_row_id' => $this->student_row_id,
                     'sslc_percentage' => $total_percentage,
                     // 'ninth_percentage' => $total_ninth_percentage,
@@ -1176,24 +1194,22 @@ class Student extends BaseController
                 }else{
 
                     $applicationStatus = array(
-                        'adm_year' => 2022,
+                        'adm_year' => 2023,
                         'registered_row_id' => $this->student_row_id,
+                        'application_number'=> $applicationNumber,
                         'sslc_percentage' => $total_percentage,
                         // 'ninth_percentage' => $total_ninth_percentage,
                         'admission_status'=> 0,
                         'updated_by' => $this->student_row_id,
                         'updated_date_time' => date('Y-m-d H:i:s'));
                         $retun = $this->student_model->saveStudentApplicationStatus($applicationStatus);
-
-                        $applicationNumber = '22'.sprintf('%04d',$retun);
-                        $applicationStatus = array(
-                            'application_number'=> $applicationNumber,
-                             'application_fee_status'=>1);
-                        $retun = $this->student_model->updateStudentApplicationStatus($this->student_row_id,$applicationStatus);
                 }
+
+               
 
                     $studentPersonalInfo = array(
                         'student_application_status'=> 0,
+                        'application_number'=> $applicationNumber,
                         'sslc_percentage' => $total_percentage,
                         // 'ninth_percentage' => $total_ninth_percentage,
                         'updated_by' => $this->student_row_id,
@@ -1239,34 +1255,37 @@ class Student extends BaseController
         $sslc_id = $boardData->sslc_board_name_id;
        $boardInfo = $this->student_model->getBoardNameById($sslc_id);
 
-       if($boardInfo->board_name =="ICSE" || $boardInfo->board_name=="CBSE"){
+    //    if($boardInfo->board_name =="ICSE" || $boardInfo->board_name=="CBSE"){
 
-        if(!empty($isExists->application_number)){
-            $TXN_AMOUNT = 75.00;
-            $payment_type = 'PROSPECTIVE FEE';
+    //     if(!empty($isExists->application_number)){
+    //         $TXN_AMOUNT = 75.00;
+    //         $payment_type = 'PROSPECTIVE FEE';
 
-        }else{
-            $TXN_AMOUNT = 125.00;
-            $payment_type = 'APPLICATION FEE';
+    //     }else{
+    //         $TXN_AMOUNT = 125.00;
+    //         $payment_type = 'APPLICATION FEE';
 
-        }
-    }else{
+    //     }
+    // }else{
 
-        if(!empty($isExists->application_number)){
-            $TXN_AMOUNT = 75.00;
-            $payment_type = 'PROSPECTIVE FEE';
+    //     if(!empty($isExists->application_number)){
+    //         $TXN_AMOUNT = 75.00;
+    //         $payment_type = 'PROSPECTIVE FEE';
 
-        }else{
-            $TXN_AMOUNT = 25.00;
-            $payment_type = 'APPLICATION FEE';
+    //     }else{
+    //         $TXN_AMOUNT = 25.00;
+    //         $payment_type = 'APPLICATION FEE';
 
-        }
+    //     }
 
 
-    }
+    // }
+
+      $TXN_AMOUNT = 25.00;
+      $payment_type = 'APPLICATION FEE';
 
        
-        $CUST_ID = "SJPUC".$this->student_row_id;
+        $CUST_ID = "STXPUC".$this->student_row_id;
         $INDUSTRY_TYPE_ID = "Retail";
         $CHANNEL_ID = "WEB";
 
@@ -1279,11 +1298,8 @@ class Student extends BaseController
             'created_date_time' => date('Y-m-d H:i:s'));
         $response = $this->student_model->addApplicationPaymentLog($payInfo);
         if($response > 0){
-            if(!empty($isExists->application_number)){
-            $ORDER_ID = 'PROSP22'.$response;
-            }else{
-                $ORDER_ID = 'APPF22'.$response;
-            }
+                $ORDER_ID = 'APPF22w'.$response;
+            
             $payInfo = array(
                 'order_id' =>$ORDER_ID);
             $this->student_model->updateApplicationPaymentLog($response,$payInfo);
@@ -1389,13 +1405,32 @@ class Student extends BaseController
                     }
                     $total_percentage = round($totalPercentage,2);
                     // $total_ninth_percentage = round($totalNinthPercentage,2);
+
+                          
+                    $existsApplicationStatus = $this->student_model->checkStudentAdmissionStatus($this->student_row_id);
+                    if(empty($existsApplicationStatus)){
+                        $isExistsApplicationNumber = $this->student_model->getPreviousStudentApplicationInfo();
+                        if(!empty($isExistsApplicationNumber)){
+                            $appNo = substr($isExistsApplicationNumber->application_number,2);
+
+                             $appliNo = $appNo + 1;
+                            $applicationNumber = '23'.sprintf('%04d', $appliNo);
+                        }else {
+                               $applicationNumber = '23'.sprintf('%04d', 1);
+
+                               }
+                            }else{
+                                $applicationNumber = $existsApplicationStatus->application_number;
+                            }
+
+
                     $isExists = $this->student_model->checkStudentAdmissionStatus($this->student_row_id);
                     if(!empty($isExists)){
 
                
                 $applicationStatus = array(
-                    'adm_year' => 2022,
-                    // 'application_number'=> $applicationNumber,
+                    'adm_year' => 2023,
+                    'application_number'=> $applicationNumber,
                     'registered_row_id' => $this->student_row_id,
                     'sslc_percentage' => $total_percentage,
                     // 'ninth_percentage' => $total_ninth_percentage,
@@ -1408,20 +1443,15 @@ class Student extends BaseController
                 }else{
 
                     $applicationStatus = array(
-                        'adm_year' => 2022,
+                        'adm_year' => 2023,
                         'registered_row_id' => $this->student_row_id,
+                        'application_number'=> $applicationNumber,
                         'sslc_percentage' => $total_percentage,
                         // 'ninth_percentage' => $total_ninth_percentage,
                         'admission_status'=> 0,
                         'updated_by' => $this->student_row_id,
                         'updated_date_time' => date('Y-m-d H:i:s'));
                         $retun = $this->student_model->saveStudentApplicationStatus($applicationStatus);
-
-                        $applicationNumber = '22'.sprintf('%04d',$retun);
-                        $applicationStatus = array(
-                            'application_number'=> $applicationNumber,
-                             'application_fee_status'=>1);
-                        $retun = $this->student_model->updateStudentApplicationStatus($this->student_row_id,$applicationStatus);
                 }
 
                 $student = $this->student_model->getStudentApplicationInfo($this->student_row_id);
@@ -1443,18 +1473,6 @@ class Student extends BaseController
                     
                
                 $retun_id = $this->student_model->updateStudentPersonalInfo($this->student_row_id,$studentPersonalInfo);
-
-                }
-
-
-                if($amountt == '75.00'){
-
-                    $applicationStatus = array(
-                        'prospective_status' => 1,
-                        'updated_by' => $this->student_row_id,
-                        'updated_date_time' => date('Y-m-d H:i:s'));
-
-                $retunn = $this->student_model->updateStudentApplicationStatus($this->student_row_id,$applicationStatus);
 
                 }
 

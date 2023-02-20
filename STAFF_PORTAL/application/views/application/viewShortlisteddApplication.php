@@ -98,7 +98,7 @@ if ($error) {
                 <div class="card card-small card_heading_title p-0 m-b-1">
                     <div class="card-body p-2">
                         <div class="row c-m-b">
-                            <div class=" col-12 col-md-6 col-lg-3 box-tools">
+                            <div class=" col-12 col-md-6 col-lg-4 box-tools">
                                 <span class="page-title">
                                     <i class="fa fa-file"></i> Shortlisted Application
                                 </span>
@@ -115,7 +115,7 @@ if ($error) {
                                                 <option value="<?php echo $admission_year; ?>" selected><b>Selected: <?php echo $admission_year; ?></b></option>
                                             <?php } ?>
                                             <option value="<?php echo CURRENT_YEAR?>"><?php echo CURRENT_YEAR?></option>
-                                            <option value="2021">2021</option>
+                                            <!-- <option value="2021">2021</option> -->
                                             
                                         </select>
                                         <div class="input-group-append">
@@ -125,12 +125,12 @@ if ($error) {
                                         </div>
                                     </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-2">
                                 <a onclick="window.history.back();"
                                     class="btn primary_color mobile-btn float-right text-white border_left_radius"
                                     value="Back"><i class="fa fa-arrow-circle-left"></i> Back </a>
-                                <a class="btn btn-md btn-success pull-right mobile-btn border_right_radius" 
-                                id="interviewComplete"> <span style="color:white;">Interview Completed</span></a>
+                                <!-- <a class="btn btn-md btn-success pull-right mobile-btn border_right_radius" 
+                                id="interviewComplete"> <span style="color:white;">Interview Completed</span></a> -->
 
                             </div>
                         </div>
@@ -154,9 +154,9 @@ if ($error) {
                                     <th>Integrated Batch</th>
                                     <th>Board</th>
                                 
-                                    <th>Admission</th>
+                                    <!-- <th>Admission</th>
                                     <th>Fee Status</th>
-                                    <th>List</th>
+                                    <th>List</th> -->
                                     <th class="text-center">Actions</th>
                                 </tr>
                                 <tr class="row_filter">
@@ -241,7 +241,7 @@ if ($error) {
                                                 <?php } } ?>
                                             </select>
                                         </th>
-                                        <th width="110" style="padding: 1px;">
+                                        <!-- <th width="110" style="padding: 1px;">
                                             <select class="form-control input-sm" id="sms_status" name="sms_status">
                                                 <?php if($sms_status != ""){ ?>
                                                     <option value="<?php echo $sms_status; ?>" selected>Selected: <?php echo $sms_status; ?></option>
@@ -272,7 +272,7 @@ if ($error) {
                                                 <option value="3" >III</option>
                                                 <option value="4" >IV</option>
                                             </select>
-                                        </th>
+                                        </th> -->
 
 
                                     
@@ -298,9 +298,9 @@ if ($error) {
                                     <th class="text-center"><?php echo $record->stream_name; ?></th>
                                     <th class="text-center"><?php echo $record->integrated_batch; ?></th>
                                     <th class="text-center"><?php echo $record->board_name; ?></th>
-                                    <td><?php if($record->interview_status == 1){echo "<b style='color:green'>Active</b>";}else{echo "<b style='color:red'>Inactive</b>";} ?></td>
+                                    <!-- <td><?php if($record->interview_status == 1){echo "<b style='color:green'>Active</b>";}else{echo "<b style='color:red'>Inactive</b>";} ?></td>
                                     <td><?php if($record->joined_status == 0){echo "<b style='color:red'>Not Paid</b>";}else{echo "<b style='color:green'>Paid</b>";} ?></td>
-                                    <td class="text-center"><?php echo $record->shortlisted_list_number; ?></td>
+                                    <td class="text-center"><?php echo $record->shortlisted_list_number; ?></td> -->
                                     
                                     <th class="text-center">
                                         <a class="btn btn-xs btn-info" title="<?php echo $record->name; ?>" data-toggle="popover" data-placement="left" 
@@ -336,9 +336,9 @@ if ($error) {
                                     <th>Integrated Batch</th>
                                     <th>Board</th>
                                 
-                                    <th>Admission</th>
+                                    <!-- <th>Admission</th>
                                     <th>Fee Status</th>
-                                    <th>List</th>
+                                    <th>List</th> -->
                                     
                                     <th class="text-center">Actions</th>
                                 </tr>

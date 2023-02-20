@@ -72,25 +72,13 @@ $preference_amount = 25;
 
                     <div class="row mx-auto justify-content-center align-items-center flex-column ">
                         <div class="card text-center w-50">
-                            <?php if ($boardInfo->board_name == 'CBSE' || $boardInfo->board_name == 'ICSE') { ?>
-                                <div style="padding: 2px;" class="card-header payment_card_title">
-                                    <h4>Total Fee</h4>
-                                </div>
-                                <div style="padding: 5px;" class="card-body">
-                                    <h2><b>Rs. 125.00</b></h2>
-                                    <div class="alert alert-info" role="alert">
-                                        Application fee(Rs 25.00) And Entrance Exam fee(Rs 100.00)<br>
-                                  <span><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><span class="badge badge-primary">Guildlines for CBSE and ICSE Students <i class="far fa-question-circle" style="color: #fff;"></i></a></span>
-
-                                    </div>
-                                   
-                                <?php } else { ?>
+                          
                                     <div style="padding: 2px;" class="card-header payment_card_title">
                                         <h4>Application Fee</h4>
                                     </div>
                                     <div style="padding: 5px;" class="card-body">
                                         <h2><b>Rs. 25.00</b></h2>
-                                    <?php } ?>
+                                   
                                     <?php if ($payment_status == true) { ?>
                                         <img src="<?php echo base_url(); ?>assets/dist/img/payment_sucess.png" width="50" height="50" alt="Success" class="mb-1" />
                                         <div class="alert alert-success mb-1" role="alert">
@@ -109,22 +97,6 @@ $preference_amount = 25;
                                         // if($application_applied_status == true){ 
                                     ?>
                                         <a target="_blank" href="<?php echo base_url(); ?>viewPrintApplication" class="btn btn-secondary btn-block"><b>Print</b></a>
-                                        <?php if ($studentInfo->prospective_status == 0 && $studentInfo->admission_status == 0) { ?>
-                                            <div class="alert  alert-warning mb-1" role="alert">
-                                                <b style="color:red">Note: </b><b style="color:black">If you want digital prospective Please pay Rs 75.00</b>
-                                            </div>
-                                            <div style="padding: 2px;" class="card-footer text-muted">
-                                                <a href="<?php echo base_url(); ?>payTmPaymentProcess" class="btn btn-primary btn-block"><b>Pay Now</b></a>
-                                            <?php } else { ?>
-                                                <div class="alert alert-warning mb-1" role="alert">
-                                                    <b style="color:black">Thank You! Prospective Fee is Paid Rs 75.00</b><br>
-                                                </div>
-                                                <div class="text-center">
-                                                    <a class="align-center" href="https://sjpuc.schoolphins.com/admission/assets/dist/img/pros_2.pdf" class="float-left text-primary font-weight-bold" download>Click Here To Download Brochure</a>
-                                                </div>
-
-                                            </div>
-                                        <?php } ?>
                                 </div>
                                 <? //php // }else{ 
                                 ?>
@@ -148,7 +120,7 @@ $preference_amount = 25;
     <div class="card-footer card_head_dashboard p-2">
         <div class="row ">
             <div class="col-6 text-left">
-                <a href="<?php echo base_url(); ?>viewCombinationDetail" class="mdc-button mdc-button--raised btn_primary"><i class="fas fa-angle-double-left"></i> Previous</a>
+                <a href="<?php echo base_url(); ?>viewCombinationDetail" id="previousloader" class="mdc-button mdc-button--raised btn_primary"><i class="fas fa-angle-double-left"></i> Previous</a>
             </div>
             <div class="col-6 text-right">
             </div>

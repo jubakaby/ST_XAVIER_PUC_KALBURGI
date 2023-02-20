@@ -60,17 +60,22 @@
                     showLoader();
                 }
             });
-            $('.navLink').on('click',(evt)=>{
-                hideLoader();
-              }else{
-                showLoader();
-              }
-            });
+            // $('.navLink').on('click',(evt)=>{
+            //     hideLoader();
+            //   }else{
+            //     showLoader();
+            //   }
 
             $("li.nav-item.show-loader > a[href*='<?=base_url()?>']").on('click',function(){
                 showLoader();
             });
-        });
+            $("#previousloader").on('click',function(){
+                showLoader();
+            });
+            });
+
+           
+       
     </script>
     <!-- End of Loader Script -->
     <!-- Loader Style -->
@@ -283,12 +288,12 @@
                     <span>Support</span>
                 </a>
                 <ul class="collapse list-unstyled ml-3" id="support">
-                    <li class="nav-item show-loader">
+                    <!-- <li class="nav-item show-loader">
                         <a class="nav-link" href="<?php echo base_url(); ?>helpGuide">
                             <i class="far fa-question-circle"></i>
                             <span>Help Guide</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item show-loader">
                         <a class="nav-link" href="<?php echo base_url(); ?>contactUs">
                             <i class="fa fa-phone"></i>

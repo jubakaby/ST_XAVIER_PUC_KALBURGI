@@ -380,8 +380,85 @@
                         <?php } ?> -->
                     </ul>
                 </li>
+                <?php } ?>
 
-                <?php }
+               <?php if ($role == ROLE_ADMIN || $role == ROLE_PRINCIPAL || $role == ROLE_PRIMARY_ADMINISTRATOR || $role == ROLE_VICE_PRINCIPAL) { ?>
+
+                <li class="nav-item">
+                    <a href="#admission" data-toggle="collapse" aria-expanded="false" class="nav-link  dropdown-toggle">
+                        <i class="material-icons">group</i>
+                        <span>Admission</span>
+                    </a>
+                    <ul class="collapse list-unstyled ml-3" id="admission">
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="<?php echo base_url(); ?>admissionDashboard">
+                                <i class="fas fa-tachometer-alt header_icons"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="<?php echo base_url(); ?>getAdmissionRegisteredStudent">
+                                <i class="material-icons">description</i>
+                                <span> Registered</span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="<?php echo base_url(); ?>getAllApplicationInfo">
+                                <i class="material-icons">description</i>
+                                <span>Application Stack</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="<?php echo base_url(); ?>newAdmission">
+                                <i class="material-icons">description</i>
+                                <span>Approved Application</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="<?php echo base_url(); ?>getShortlistedApplication">
+                                <i class="material-icons">description</i>
+                                <span>Shortlisted Application</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="<?php echo base_url(); ?>getRejectedApplicationInfo">
+                                <i class="material-icons">description</i>
+                                <span>Rejected Application</span>
+                            </a>
+                        </li>
+                        <?php 
+                    if ($role == ROLE_ADMIN || $role == ROLE_PRINCIPAL || $role == ROLE_PRIMARY_ADMINISTRATOR) { ?>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link " href="<?php echo base_url(); ?>reportDashboard">
+                                <i class="material-icons">description</i>
+                                <span>Report</span>
+                            </a>
+                        </li> -->
+                        <?php }
+                   ?>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link " href="<?php echo base_url(); ?>newAdm_feePayNow">
+                            <i class="material-icons">description</i>
+                                <span>Pay Now</span>
+                            </a>
+                        </li> -->
+
+                        <!-- <li class="nav-item">
+                            <a class="nav-link " href="<?php echo base_url(); ?>getAllFeePaymentInfoNewAdm">
+                                <i class="material-icons">description</i>
+                                <span>Fee Paid</span>
+                            </a>
+                        </li> -->
+                    </ul>
+                </li>
+                <?php } ?>
+
+
+
+                <?php 
                 if ($role == ROLE_ADMIN || $role == ROLE_PRINCIPAL || $role == ROLE_PRIMARY_ADMINISTRATOR || $role == ROLE_OFFICE) { ?>
 
                 <li class="nav-item">
@@ -496,7 +573,7 @@
 
 
                     if ($role == ROLE_ACCOUNT) { ?>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#admission" data-toggle="collapse" aria-expanded="false" class="nav-link  dropdown-toggle">
                         <i class="material-icons">group</i>
                         <span>Admission -2021</span>
@@ -509,7 +586,7 @@
                 <i class="material-icons">description</i>
                     <span>Pay Now</span>
                 </a>
-            </li> -->
+            </li> -
 
                         <li class="nav-item">
                             <a class="nav-link " href="<?php echo base_url(); ?>getAllFeePaymentInfoNewAdm">
@@ -518,11 +595,11 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
                 <?php }
                     if ($role == ROLE_ERROR_COMMITTEE || $role == ROLE_APPROVE_COMMITTEE) { ?>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#admission_error" data-toggle="collapse" aria-expanded="false"
                         class="nav-link  dropdown-toggle">
                         <i class="material-icons">group</i>
@@ -543,7 +620,7 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> -->
 
                 <?php }
                     if ($role == ROLE_ADMIN || $role == ROLE_PRINCIPAL || $role == ROLE_PRIMARY_ADMINISTRATOR || $role == ROLE_VICE_PRINCIPAL) { ?>

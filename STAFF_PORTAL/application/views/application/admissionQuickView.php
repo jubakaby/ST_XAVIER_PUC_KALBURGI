@@ -50,7 +50,7 @@
                                                 <option value="<?php echo $admission_year; ?>" selected><b>Selected: <?php echo $admission_year; ?></b></option>
                                             <?php } ?>
                                             <option value="<?php echo CURRENT_YEAR?>"><?php echo CURRENT_YEAR?></option>
-                                            <option value="2021">2021</option>
+                                            <!-- <option value="2021">2021</option> -->
                                             
                                         </select>
                                         <div class="input-group-append">
@@ -95,7 +95,7 @@
                                             </div>
                                         </div>
 
-                                        <form action="<?php echo base_url() ?>shorlitedStudentPDF_PRINT" method="POST"
+                                        <!-- <form action="<?php echo base_url() ?>shorlitedStudentPDF_PRINT" method="POST"
                                         id="byFilterMethod">
                                     
                                             <select class="form-control input-sm" id="preference" name="preference"
@@ -121,7 +121,7 @@
                                             <button type="submit" class="btn btn-success btn-md btn-block"><i
                                                     class="fa fa-filter"></i> PDF Download</button>
                                         </th>
-                                    </form>
+                                    </form> -->
                                     </div>
                                 </div>
                             </div>
@@ -153,20 +153,20 @@
                                                     <th>Shortlisted Students</th>
                                                     <th><?php echo $shortlistedCount; ?></th>
                                                 </tr>
-                                                <tr>
+                                                <!-- <tr>
                                                     <th>Interview Completed</th>
                                                     <th><?php echo $interviewCount; ?></th>
-                                                </tr>
-                                                <tr>
+                                                </tr> -->
+                                                <!-- <tr>
                                                     <th>Fee Paid</th>
                                                     <th><?php echo $completedCount; ?></th>
-                                                </tr>
+                                                </tr> -->
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-12 mb-2">
+                            <!-- <div class="col-md-6 col-12 mb-2">
                                 <div class="card">
                                     <div class="card-body p-1">
                                         <div class="table-responsive">
@@ -191,8 +191,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-12 mb-2">
+                            </div> -->
+                            <!-- <div class="col-md-6 col-12 mb-2">
                                 <div class="card">
                                     <div class="card-body p-1">
                                         <div class="table-responsive">
@@ -220,8 +220,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12 col-12 mb-2">
+                            </div> -->
+                            <!-- <div class="col-md-12 col-12 mb-2">
                                 <div class="card">
                                     <div class="card-body p-1">
                                         <div class="table-responsive">
@@ -250,9 +250,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="col-lg-12 col-12">
+                            <!-- <div class="col-lg-12 col-12">
                                 <div class="card">
                                     <div class="card-body p-1">
                                         <div class="table-responsive">
@@ -290,7 +290,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
 
 
@@ -386,10 +386,7 @@
                                     <td>Application Status</td>
                                     <th>`+admissionStatus+`</th>
                                 </tr>
-                                <tr class="table-success">
-                                    <td>Fee Payment</td>
-                                    <th>`+admissionCompletedStatus+`</th>
-                                </tr>
+                              
                             </tbody>
                         </table>
                         </div>

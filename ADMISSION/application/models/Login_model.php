@@ -12,7 +12,7 @@ class Login_model extends CI_Model
     {
         $this->db->select('std.row_id, std.password, std.name, std.email, std.mobile, std.dob, std.registration_number, std.sslc_board_name_id, std.other_board_name');
         $this->db->from('tbl_admission_registered_student_temp as std');
-        $this->db->where('std.reg_year', '2022');
+        $this->db->where('std.reg_year', '2023');
         if (strpos($username, '@') !== false){
             $this->db->where('std.email', $username);
         }else{
