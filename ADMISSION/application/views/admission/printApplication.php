@@ -134,24 +134,23 @@ $set_html=<<<EOD
 <table cellpadding="3" cellspacing="1">
     <tr nobr="true">
         <td width="100" style="border-left: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;vertical-align:middle;">
-            <img width="200" height="220" src="assets/dist/img/logoSJPUC.png" alt="logo">
+            <img width="200" height="220" src="assets/dist/img/logo_stxpuc.jpg" alt="logo">
         </td>
         <td width="470" style="text-align:center;border-top: 1px solid black;border-bottom: 1px solid black;">
             <tr>
-                <td style="font-size:20px;"><b>ST JOSEPH'S PRE UNIVERSITY COLLEGE</b></td>
+                <td style="font-size:20px;"><b>ST. XAVIER'S PRE–UNIVERSITY COLLEGE</b></td>
             </tr>
             <tr>
                 <td style="font-size:14px;">(Department of Pre-University Education, Government of Karnataka)</td>
             </tr>
             <tr>
-                <td style="font-size: 13px">F M Cariappa Road (Residency Road), Bengaluru-560025</td>
+                <td style="font-size: 13px">sirnur farhatabad road</td>
             </tr>
             <tr>
-                <td style="font-size:18px;font-weight: bold;">Admission Form for I PUC 2022-23</td>
+                <td style="font-size:18px;font-weight: bold;">Admission Form for I PUC 2023-24</td>
             </tr>
         </td>
         <td style="border-right: 1px solid black;border-top: 1px solid black;border-bottom: 1px solid black;" width="100">
-            <img style="vertical-align:middle;" height="90" width="80" src="assets/images/stjoseph.jpg" alt="LOGO">
         </td>
     </tr>
     <tr>
@@ -348,13 +347,13 @@ $set_html=<<<EOD
         </td>
         <td width="400" style="text-align:center;border-top: 1px solid black;border-bottom: 1px solid black;">
             <tr>
-                <td style="font-size:18px;text-transform: uppercase;"><b>St Joseph’s Pre University College</b></td>
+                <td style="font-size:18px;text-transform: uppercase;"><b>ST. XAVIER'S PRE–UNIVERSITY COLLEGE</b></td>
             </tr>
             <tr>
                 <td style="font-size:12px;"><span>(Department of Pre-University Education, Government of Karnataka)</span></td>
             </tr>
             <tr>
-                <td style="font-size: 10px"><span>F M Cariappa Road (Residency Road), Bengaluru-560025</span></td>
+                <td style="font-size: 10px"><span>sirnur farhatabad road</span></td>
             </tr>
         </td>
         <td width="140">
@@ -433,7 +432,7 @@ $set_html=<<<EOD
         <td></td>
     </tr>
     <tr>
-        <td><p style="font-size: 14px;"><i>Place: Bangalore</i></p>
+        <td><p style="font-size: 14px;"><i>Place: Kalaburagi</i></p>
             <p style="font-size: 14px;"><i>Date: $current_date</i> 
             <i>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; Signature of the Applicant</i>  
             <i>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; Signature of Parent / Guardian</i></p>
@@ -452,7 +451,7 @@ $set_html=<<<EOD
         </td>
     </tr>
     <tr>
-        <td><p style="font-size: 14px;"><i>Place: Bangalore</i></p>
+        <td><p style="font-size: 14px;"><i>Place: Kalaburagi</i></p>
             <p style="font-size: 14px;"><i>Date: $current_date &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;</i> 
             <i>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; Signature of the Selection Committee Member</i></p>
         </td>

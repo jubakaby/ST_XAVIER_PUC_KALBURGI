@@ -90,7 +90,7 @@ class Application extends BaseController {
 
 
             if($admission_year == '') {
-                $filter['admission_year'] = 2022;
+                $filter['admission_year'] = 2023;
 
             }else {
                 $filter['admission_year']  = $admission_year;
@@ -171,7 +171,7 @@ class Application extends BaseController {
 
 
             if($admission_year == '') {
-                $filter['admission_year'] = 2022;
+                $filter['admission_year'] = 2023;
 
             }else {
                 $filter['admission_year']  = $admission_year;
@@ -293,7 +293,7 @@ class Application extends BaseController {
 
 
             if($admission_year == '') {
-                $filter['admission_year'] = 2022;
+                $filter['admission_year'] = 2023;
 
             }else {
                 $filter['admission_year']  = $admission_year;
@@ -360,7 +360,7 @@ class Application extends BaseController {
 
 
             if($admission_year == '') {
-                $filter['admission_year'] = 2022;
+                $filter['admission_year'] = 2023;
 
             }else {
                 $filter['admission_year']  = $admission_year;
@@ -432,7 +432,7 @@ class Application extends BaseController {
 
 
             if($admission_year == '') {
-                $filter['admission_year'] = 2022;
+                $filter['admission_year'] = 2023;
 
             }else {
                 $filter['admission_year']  = $admission_year;
@@ -1395,7 +1395,7 @@ St. Joseph's Pre-University College HASSAN";
 
 
             if($admission_year == '') {
-                $admission_year_filter = 2022;
+                $admission_year_filter = 2023;
 
             }else {
                 $admission_year_filter  = $admission_year;
@@ -1511,10 +1511,10 @@ St. Joseph's Pre-University College HASSAN";
             $students_appliction_number = json_decode(stripslashes($this->input->post('students_appliction_number')));
 
 
-            $online_interview_date = $this->input->post('online_interview_date');
-            $interview_link = $this->input->post('interview_link');
-            $any_comments = $this->input->post('any_comments');
-            $shortlist_number = $this->input->post('shortlist_number');
+            // $online_interview_date = $this->input->post('online_interview_date');
+            // $interview_link = $this->input->post('interview_link');
+            // $any_comments = $this->input->post('any_comments');
+            // $shortlist_number = $this->input->post('shortlist_number');
 
 
             foreach($students_appliction_number as $app_no){           

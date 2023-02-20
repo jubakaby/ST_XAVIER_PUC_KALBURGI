@@ -315,7 +315,7 @@ if(!empty($documentInfo)){
                                         <div class="form-group"> 
                                             <label class="student_mobile mdc-text-field mdc-text-field--filled ">
                                               <span class="mdc-text-field__ripple"></span>
-                                               <input name="student_mobile" id="student_mobile" pattern="[0-9]*" value="<?php echo $student_mobile; ?>" class="mdc-text-field__input" type="tel" aria-labelledby="my-label-id" maxlength="10" autocomplete="off" onkeypress="return isNumber(event)" >
+                                               <input name="student_mobile" id="student_mobile" pattern="[0-9]*" value="<?php echo $student_mobile; ?>" class="mdc-text-field__input" type="tel" aria-labelledby="my-label-id" maxlength="10" minlength="10" autocomplete="off" onkeypress="return isNumber(event)" >
                                               <span class="mdc-floating-label" id="my-label-id">Student Mobile Number</span>
                                               <span class="mdc-line-ripple"></span>
                                             </label>
@@ -1118,7 +1118,7 @@ if(!empty($documentInfo)){
                                 <div class="form-group">
                                     <label class="guardian_mobile mdc-text-field mdc-text-field--filled ">
                                         <span class="mdc-text-field__ripple"></span>
-                                         <input type="tel" pattern="[0-9]*" name="guardian_mobile" id="guardian_mobile" value="<?php echo $guardian_mobile; ?>" class="mdc-text-field__input" maxlength="10" aria-labelledby="my-label-id" onkeypress="return isNumber(event)" autocomplete="off">
+                                         <input type="tel" pattern="[0-9]*" name="guardian_mobile" id="guardian_mobile" value="<?php echo $guardian_mobile; ?>" class="mdc-text-field__input" maxlength="10" minlength="10" aria-labelledby="my-label-id" onkeypress="return isNumber(event)" autocomplete="off">
                                         <span class="mdc-floating-label" id="my-label-id">Guardian's Mobile Number</span>
                                         <span class="mdc-line-ripple"></span>
                                       </label>

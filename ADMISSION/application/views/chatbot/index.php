@@ -48,11 +48,11 @@
     <script src='<?=base_url()?>assets/chatbot/helper.js'></script>
     <script>
         $(document).ready(()=>{
-            const botIMG = "<?=base_url()?>assets/chatbot/chat_logo.png";
+            const botIMG = "<?=base_url()?>assets/dist/img/logo_stxpuc.jpg";
             const userIMG = "<?=$this->session->userdata('photo_url');?>" || "<?=base_url()?>assets/chatbot/chat-default-user.png";
             const name= "<?=$this->session->userdata('name');?>";
             //ChatBot.initiateChatBot("Name of Responder, Image of Responder, Name of Sender, Image of Sender, Base URL");
-            ChatBot.initiateChatBot("SJPUC",botIMG,name,userIMG,"<?=base_url()?>");
+            ChatBot.initiateChatBot("STXPUC",botIMG,name,userIMG,"<?=base_url()?>");
         });
     </script>
 </html>

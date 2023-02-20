@@ -105,7 +105,7 @@ define('ROLE_PRIMARY_ADMINISTRATOR',            '15');
 define('ROLE_SECURITY',                         '16');
 // define('ROLE_MANAGER',                          '16');
 define('CL',                            'CASUAL LEAVE');
-define('CURRENT_YEAR',                            '2022');
+define('CURRENT_YEAR',                            '2023');
 
 define('SEGMENT',								2);
 

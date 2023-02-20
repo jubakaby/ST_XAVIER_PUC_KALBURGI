@@ -1,6 +1,6 @@
-<div class="loader">
+<!-- <div class="loader">
   <img id="loader_img" src="<?php echo base_url(); ?><?php echo LOADER_IMG; ?>" class="img-fluid" alt="loader">
-</div>
+</div> -->
 <style>
 .form-group {
     margin-bottom: 0rem !important;
@@ -81,11 +81,9 @@ input[type=number]::-webkit-outer-spin-button {
             <span class="text-center"><?php if(!empty($studentApplicationStatus)){
             if($studentApplicationStatus->joined_status == 1){
               echo "<b style='color:green'>Admission Completed</b>";
-            }else if($studentApplicationStatus->interview_status == 1){ 
-              echo '<a href="'.base_url().'viewAdmission" class="btn btn-danger btn-lg btn-block my-1 mx-1 float-right">Click here for fee payment</a>';
             }else if($studentApplicationStatus->admission_status == 1){ 
               echo '<span class="text-dark">YOUR APPLICATION HAS BEEN VERIFIED BY OUR TEAM AND SUCCESSFULLY SUBMITTED FOR FURTHER SCRUTINY. 
-              List of the provisionally selected candidates will be announced on www.sjpuc.in as per the PU Board guidelines. Date will be notified soon.</span>';
+             </span>';
             }else if($studentApplicationStatus->admission_status == 2){ 
               echo '<span class="text-dark">YOUR APPLICATION IS INCOMPLETE.
               Kindly rectify the following:<br>'.
@@ -110,39 +108,12 @@ input[type=number]::-webkit-outer-spin-button {
           </div>
         </div>
         <div class="card-footer text-center dash-footer p-0">
-          <div class="more-info text-dark"><i class="fa fa-eye"></i></div><br>
+          <div class="more-info text-dark"><i class="fa fa-eye"></i></div>
           <span class="text-center text-dark">View/Print</span>
         </div>
       </div>
       </a>
-    </div>
-    <?php if($studentApplicationStatus->prospective_status ==0 && $studentApplicationStatus->admission_status ==0){?>
-
-    <div class="col-lg-12 col-12 mb-4 column_padding_card">
-                <div class="card">
-                    <div class="card-body text-center">
-                    <div class="alert alert-warning mb-1" role="alert">
-                    <b style="color:red">Note: </b><b style="color:black">If you want digital prospective Please pay 75Rs</b></div>
-               <div class="text-center">
-               <a href="<?php echo base_url()?>payTmPaymentProcess" class="btn btn-success btn-sm my-1 mx-1 ">Click Here to Pay Prospective Fee</a>
-               </div>      
-                    </div>
-                </div>
-            </div>
-            <?php }else if($studentApplicationStatus->prospective_status ==1 && $studentApplicationStatus->admission_status ==0){?>
-              <div class="col-lg-12 col-12 mb-4 column_padding_card">
-                <div class="card">
-                    <div class="card-body text-center">  
-                <div class="alert alert-warning mb-1" role="alert">
-               <b style="color:black">Thank You! Prospective Fee is Paid Rs 75</b><br></div>
-               <div class="text-center">
-             <a class="align-center" href="https://sjpuc.schoolphins.com/admission/assets/dist/img/pros_2.pdf" class="float-left text-primary font-weight-bold" download>Click Here To Download Brochure</a></div>
-              </div>
-                </div>
-              </div>
-             <?php }?>
-
-    
+    </div> 
 
     <?php if(!empty($studentApplicationStatus)){
             if($studentApplicationStatus->joined_status == 1){ ?>
@@ -290,41 +261,7 @@ input[type=number]::-webkit-outer-spin-button {
   </div>
 
   
-  <div class="modal" id="microsoftTeamId">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-header table-primary">
-          <h5 class="modal-title ">Online Class - Microsoft Teams Credentials</h5>
-          <button type="button" class="close" id="microsoftModalClose" data-dismiss="modal">&times;</button>
-        </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-12">
-                <table class="table" style="font-size: 16px;">
-                  <tr>
-                    <th>Username <span class="float-right">:</span></th>
-                    <th><?php echo $microsoftTeamInfo->username; ?></th>
-                  </tr>
-                  <tr>
-                    <th>Password <span class="float-right">:</span></th>
-                    <th><?php echo $microsoftTeamInfo->password; ?></th>
-                  </tr>
-                </table>
-                <hr class="my-1">
-                <span class="font-weight-bold">Microsoft Teams Helpline no. : 9538030893</span>
-                <a href="http://sjpuc.schoolphins.com/assets/images/uniform.jpeg" download>Click here PUC COLLEGE SHOES AND SOCKS (UNIFORM)</a>
-            </div>
-          </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" id="microsoftModalCloseBtn" data-dismiss="modal">Close</button>
-          </div>
-
-      </div>
-    </div>
-  </div>
-  </div>
+  
   
     
 </div>
